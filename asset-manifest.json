@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/shyMeets/static/css/main.073c9b0a.css",
+    "main.js": "/shyMeets/static/js/main.664945f4.js",
+    "static/js/787.78696b9d.chunk.js": "/shyMeets/static/js/787.78696b9d.chunk.js",
+    "service-worker.js": "/shyMeets/service-worker.js",
+    "static/media/logo.svg": "/shyMeets/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
+    "index.html": "/shyMeets/index.html",
+    "main.073c9b0a.css.map": "/shyMeets/static/css/main.073c9b0a.css.map",
+    "main.664945f4.js.map": "/shyMeets/static/js/main.664945f4.js.map",
+    "787.78696b9d.chunk.js.map": "/shyMeets/static/js/787.78696b9d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.664945f4.js"
+  ]
+}
