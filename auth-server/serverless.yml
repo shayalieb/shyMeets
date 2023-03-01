@@ -1,0 +1,27 @@
+#Template aws service
+service: auth-server
+
+frameworkVersion: '3'
+
+#AWS configs
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  timeout: 60
+#Access credentials for google api  
+  environment:
+    CLIENT_ID: ${file(config.json):CLIENT_ID}
+    PROJECT_ID: ${file(config.json):PROJECT_ID}
+    CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
+    CALENDAR_ID: ${file(config.json):CALENDAR_ID}
+#Lambda functions    
+functions:
+  getAuthURL:
+    handler: handler.getAuthURL
+    events:
+      - http:
+          path: api/get-auth-url
+          method: get
+
+#    

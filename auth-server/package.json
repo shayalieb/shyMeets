@@ -1,0 +1,15 @@
+{
+  "name": "auth-server",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^111.0.0",
+    "serverless": "^3.28.0"
+  },
+  "description": ""
+}
