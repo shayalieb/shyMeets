@@ -8,7 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.1326.0",
+    "aws": "^0.0.3-2",
     "googleapis": "^111.0.0"
   },
   "description": "",
