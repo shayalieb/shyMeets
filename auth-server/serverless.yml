@@ -1,11 +1,11 @@
 #Template aws service
-service: serverless-simple
+service: auth-server
 
 frameworkVersion: '3'
 
 #AWS configs
 provider:
-  name: aws sdk
+  name: aws-sdk 
   runtime: nodejs12.x
   region: us-east-1
   timeout: 60
