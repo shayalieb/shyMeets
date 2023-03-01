@@ -5,7 +5,7 @@ frameworkVersion: '3'
 
 #AWS configs
 provider:
-  name: aws-sdk 
+  name: aws sdk 
   runtime: nodejs12.x
   region: us-east-1
   timeout: 60
@@ -24,4 +24,4 @@ functions:
           path: api/get-auth-url
           method: get
 
-#    
+ 

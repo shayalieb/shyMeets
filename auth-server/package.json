@@ -9,8 +9,10 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.1326.0",
-    "googleapis": "^111.0.0",
-    "serverless": "^3.28.0"
+    "googleapis": "^111.0.0"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "serverless": "^3.28.0"
+  }
 }
