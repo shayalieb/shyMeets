@@ -39,11 +39,50 @@ module.exports.getAuthURL = async () => {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': true,
     },
-    body: authUrl
+    body: JSON.stringify({
+      authUrl: authUrl,
+    })
+    // body: authUrl
   };
 };
 
 //getAccessToken for accessing the google calendar
+module.exports.getAccessToken = async (event) => {
+  const oAuth2Client = new google.auth.OAuth2(
+    client_id,
+    client_secret,
+    redirect_uris[0]
+  );
+  const code = decodeURIComponent(`${event.pathParameters.code}`);
 
+  return new Promise((resolve, reject) => {
+    //Exchange the auth code for the access token
+    oAuth2Client.getToken(code, (err, token) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(token);
+    });
+  })
+    .then((token) => {
+      //Respond with the token
+      return {
+        statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
+        body: JSON.stringify(token),
+      };
+    })
+    //Error handler
+    .catch((err) => {
+      console.error(err);
+      return {
+        statusCode: 500,
+        body: JSON.stringify(err)
+      };
+    });
+};
 
 //getCalendarEvents 
