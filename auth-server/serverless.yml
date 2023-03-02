@@ -1,5 +1,3 @@
-org: shayalieb
-app: auth-server
 #Template aws service
 service: auth-server
 
@@ -25,5 +23,12 @@ functions:
       - http:
           path: api/get-auth-url
           method: get
+  getAccessToken:
+    handler: handler.getAccessToken
+    events:
+      - http:
+          path: api/token/{code} 
+          method: get
+
 
  
