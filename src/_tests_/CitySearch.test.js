@@ -5,40 +5,61 @@ import { mockData } from "../mock-data";
 import { extractLocations } from "../api";
 
 describe('<CitySearch /> component', () => {
+    let locations, CitySearchWrapper;
+    beforeAll(() => {
+        locations = extractLocations(mockData)
+        CitySearchWrapper = shallow(<CitySearch locations={locations} />);
+    });
     test('render text input', () => {
-        const CitySearchWrapper = shallow(<CitySearch />)
         expect(CitySearchWrapper.find('.city')).toHaveLength(1);
     });
 
     test('render a list of suggestions', () => {
-        const CitySearchWrapper = shallow(<CitySearch />)
         expect(CitySearchWrapper.find('.suggestions')).toHaveLength(1);
     });
 
     test('renders text input correctly', () => {
-        const CitySearchWrapper = shallow(<CitySearch />);
         const query = CitySearchWrapper.state('query');
         expect(CitySearchWrapper.find('.city').prop('value')).toBe(query);
     });
 
     test('change state when text input changes', () => {
-        const CitySearchWrapper = shallow(<CitySearch />);
         CitySearchWrapper.setState({
-            query: 'Miami'
+            query: 'Miami, FL'
         });
-        const eventObject = { target: { value: 'New_York' } };
+        const eventObject = { target: { value: 'Miami, FL' } };
         CitySearchWrapper.find('.city').simulate('change', eventObject);
-        expect(CitySearchWrapper.state('query')).toBe('New_York');
+        expect(CitySearchWrapper.state('query')).toBe('Miami, FL');
     });
 
     test('render list of suggestions correctly', () => {
         const locations = extractLocations(mockData);
-        const CitySearchWrapper = shallow(<CitySearch />);
         CitySearchWrapper.setState({ suggestions: locations });
         const suggestions = CitySearchWrapper.state('suggestions');
         expect(CitySearchWrapper.find('.suggestions li')).toHaveLength(suggestions.length + 1);
-        for (let i = 0; i < suggestions.length; i += 1) {
+        for (let i = 0; i < suggestions.length; i++) {
             expect(CitySearchWrapper.find('.suggestions li').at(i).text()).toBe(suggestions[i]);
         }
+    });
+
+    test('suggestion list to match the query when changed', () => {
+        CitySearchWrapper.setState({ query: 'Miami, FL', suggestions: [['Miami, FL', 'New York, NY', 'Brooklyn, NY', 'Redondo Beach, CA']] })
+        CitySearchWrapper.find('.city').simulate('change', {
+            target: { value: 'Miami, FL' },
+        });
+        const query = CitySearchWrapper.state('query');
+        const filteredLocations = locations.filter((location) => {
+            return location && location.toUpperCase().indexOf(query.toUpperCase()) > -1;
+        });
+        expect(CitySearchWrapper.state('suggestions')).toEqual(filteredLocations);
+    });
+
+    test('selecting a suggestion should change the query state', () => {
+        CitySearchWrapper.setState({
+            query: 'Miami, FL'
+        });
+        const suggestions = CitySearchWrapper.state('suggestions');
+        CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
+        expect(CitySearchWrapper.state('query')).toBe(suggestions[0]);
     });
 });

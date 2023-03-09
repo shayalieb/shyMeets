@@ -9,9 +9,22 @@ class CitySearch extends Component {
         suggestions: []
     }
 
-    handleInputChange = (event) => {
+    handleInputChanged = (event) => {
         const value = event.target.value;
-        this.setState({ query: value });
+        const locations = extractLocations(mockData);
+        const suggestions = locations.filter((location) => {
+            return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
+        });
+        this.setState({
+            query: value,
+            suggestions,
+        });
+    };
+
+    handleItemClicked = (suggestion) => {
+        this.setState({
+            query: suggestion,
+        });
     }
 
     render() {
@@ -27,6 +40,7 @@ class CitySearch extends Component {
                     {this.state.suggestions.map((suggestion) => (
                         <li
                             key={suggestion}
+                            onClick={() => this.handleItemClicked(suggestion)}
                         >
                             {suggestion}
                         </li>
