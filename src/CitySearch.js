@@ -11,8 +11,9 @@ class CitySearch extends Component {
 
     handleInputChanged = (event) => {
         const value = event.target.value;
-        const locations = extractLocations(mockData);
-        const suggestions = locations.filter((location) => {
+        this.setState({ query: value })
+        //const locations = extractLocations(mockData);
+        const suggestions = this.props.locations.filter((location) => {
             return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
         });
         this.setState({
@@ -27,6 +28,7 @@ class CitySearch extends Component {
         });
     }
 
+
     render() {
         return (
             <div className="CitySearch">
@@ -34,19 +36,17 @@ class CitySearch extends Component {
                     type="text"
                     className="city"
                     value={this.state.query}
-                    onChange={this.handleInputChange}
+                    onChange={this.handleInputChanged}
                 />
                 <ul className="suggestions">
                     {this.state.suggestions.map((suggestion) => (
                         <li
                             key={suggestion}
                             onClick={() => this.handleItemClicked(suggestion)}
-                        >
-                            {suggestion}
-                        </li>
+                        >{suggestion}</li>
                     ))}
-                    <li key='all'>
-                        <b>View all cities</b>
+                    <li>
+                        <b>See all cities</b>
                     </li>
                 </ul>
             </div>

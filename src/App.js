@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    NumberOfEvents: 10
+    numberOfEvents: 10
   }
   render() {
     return (
