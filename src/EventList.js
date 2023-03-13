@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Event from './Event';
+import { getEvents, extractLocations } from './api';
 
 class EventList extends Component {
     render() {
