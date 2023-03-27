@@ -5,16 +5,13 @@ class CitySearch extends Component {
     state = {
         query: '',
         suggestions: [],
-        showSuggestions: undefined
     }
 
     handleInputChanged = (event) => {
         const value = event.target.value;
-        this.setState({ query: value })
-        //const locations = extractLocations(mockData);
         const suggestions = this.props.locations.filter((location) => {
             return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
-        });
+        })
         this.setState({
             query: value,
             suggestions,
@@ -23,32 +20,28 @@ class CitySearch extends Component {
 
     handleItemClicked = (suggestion) => {
         this.setState({
-            query: suggestion,
-            showSuggestions: false
+            query: suggestion
         });
-        this.props.updateEvents(suggestion);
     }
-
 
     render() {
         return (
-            <div className="CitySearch">
+            <div className='CitySearch'>
                 <input
-                    type="text"
-                    className="city"
+                    type='text'
+                    className='city'
                     value={this.state.query}
                     onChange={this.handleInputChanged}
-                    onFocus={() => { this.setState({ showSuggestions: true }) }}
                 />
-                <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
+                <ul className='suggestions'>
                     {this.state.suggestions.map((suggestion) => (
-                        <li
+                        <li 
                             key={suggestion}
                             onClick={() => this.handleItemClicked(suggestion)}
                         >{suggestion}</li>
                     ))}
-                    <li onClick={() => this.handleItemClicked('all')}>
-                        <b>See all cities</b>
+                    <li key='all'>
+                        <b>See all Cities</b>
                     </li>
                 </ul>
             </div>

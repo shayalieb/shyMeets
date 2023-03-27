@@ -1,30 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { shallow } from 'enzyme';
 import NumberOfEvents from '../NumberOfEvents';
 
-describe('<numberOfEvents />', () => {
-    let NumberOfEventsWrapper, noeInput;
+describe('<NumberOfEvents /> component', () => {
+    let NoeWrapper, noeInput;
     beforeAll(() => {
-        NumberOfEventsWrapper = shallow(<NumberOfEvents />);
-        noeInput = NumberOfEventsWrapper.find('input.noe-input');
+        NoeWrapper = shallow(<NumberOfEvents />);
+        noeInput = NoeWrapper.find('input.noe-input');
     });
 
-    test('<numberOfEvents /> and noe-input are all rendered', () => {
-        expect(NumberOfEventsWrapper).toBeDefined()
+    test('render NumberOfEvents and noe-input', () => {
+        expect(NoeWrapper).toBeDefined();
         expect(noeInput).toBeDefined();
     });
 
-    test('noe-input shows default 10', () => {
-        expect(NumberOfEventsWrapper.find('input.noe-input').prop('type')).toBe('number');
-        expect(NumberOfEventsWrapper.state('noe')).toBe(10);
+    test('noe-default number is 15', () => {
+        expect(NoeWrapper.find('input.noe-input').prop('type')).toBe('number');
+        expect(NoeWrapper.state('noe')).toBe(15);
     });
 
-    test('changing the noe-input value and render correctly', () => {
-        expect(NumberOfEventsWrapper.state('noe')).toBe(10);
-        NumberOfEventsWrapper.find('input.noe-input').simulate('change', {
-            target: { value: 15 }
+    test('when noe changes, the value should reflect correctly', () => {
+        expect(NoeWrapper.state('noe')).toBe(15)
+        NoeWrapper.find('input.noe-input').simulate('change', {
+            target: { value: 20 }
         });
-        expect(NumberOfEventsWrapper.state('noe')).toBe(15)
+        expect(NoeWrapper.state('noe')).toBe(20)
     });
-
 });

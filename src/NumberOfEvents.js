@@ -1,33 +1,35 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class NumberOfEvents extends Component {
-    state = { noe: 10 }
-
-    componentDidMount() {
-        this.setState({ noe: this.props.noe || 10 });
+    state = {
+        noe: 15
     }
 
-    changeNOE(value) {
+    componentDidMount() {
+        this.setState({ noe: this.props.noe || 15 });
+    }
+
+    changeNoe(value) {
         this.setState({ noe: value });
     }
 
     render() {
-        const { noe } = this.state;
+        const { noe } = this.state
         return (
-            <div className='NumberOfevents'>
-                <h3>Number of Events:</h3>
+            <div className='NumberOfEvents'>
+                <h3>Show Number of Events</h3>
                 <input
                     className='noe-input'
                     type='number'
                     value={noe}
                     onChange={event => {
-                        this.changeNOE(event.target.value);
+                        this.changeNoe(event.target.value);
                     }}
                 >
                 </input>
             </div>
-        );
-    };
-};
+        )
+    }
+}
 
 export default NumberOfEvents;

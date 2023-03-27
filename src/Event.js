@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
 
 class Event extends Component {
-    state = { collapsed: true };
+    state = { collapsed: true }
     toggleDetails = () => {
-        this.setState(prevState => ({
-            collapsed: !prevState.collapsed
-        }))
+        this.setState((prevState) => ({
+            collapsed: !prevState.collapsed,
+        }));
     };
 
     render() {
-        const { event } = this.props;
+        const { event } = this.props
         const { collapsed } = this.state;
-
         return (
             <div className='event'>
                 <h2 className='summary'>{event.summary}</h2>
-                <p className='start'>
-                    {event.start.date}
+                <p className='event-start'>
+                    {new Date(event.start.dateTime).toString()}
                 </p>
-                <p className='location'>
-                    {`location: ${event.location}`}
+                <p className='event-location'>
+                    {`Location: ${event.location}`}
                 </p>
-                <button className='details-button' onClick={this.toggleDetails}>
-                    {collapsed ? 'show' : 'hide'} Event Details
+                <button
+                    className='details-button'
+                    onClick={this.toggleDetails}
+                >
+                    {collapsed ? 'Show' : 'Hide'} Event Details
                 </button>
                 {!collapsed && (
                     <div className='details'>
@@ -33,13 +35,16 @@ class Event extends Component {
                             className='link'
                             href={event.htmlLink}
                             target='_blank'
-                            rel='noopener norefferer'
+                            rel='noopener noreferrer'
                         >
-                            See details on Google Calendar
+                            See event details on Google Calendar
                         </a>
-                        <p className='description'>
+                        <p
+                            className='description'
+                        >
                             {event.description}
                         </p>
+
                     </div>
                 )}
             </div>
