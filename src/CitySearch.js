@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 class CitySearch extends Component {
     state = {
+        locations: this.props.locations,
         query: '',
         suggestions: [],
         showSuggestions: undefined
@@ -37,9 +38,9 @@ class CitySearch extends Component {
                     onChange={this.handleInputChanged}
                     onFocus={() => { this.setState({ showSuggestions: true }) }}
                 />
-                <ul 
+                <ul
                     className='suggestions'
-                    style={this.state.showSuggestions ? {} : {display: 'none'}}
+                    style={this.state.showSuggestions ? {} : { display: 'none' }}
                 >
                     {this.state.suggestions.map((suggestion) => (
                         <li

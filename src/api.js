@@ -1,5 +1,5 @@
 import axios from "axios";
-import NProgress  from "nprogress";
+import NProgress from "nprogress";
 import { mockData } from "./mock-data";
 
 export const getAccessToken = async () => {
@@ -53,7 +53,7 @@ export const getEvents = async () => {
 };
 
 export const extractLocations = (events) => {
-    var extractLocations = events.map((event) => event.location);
+    var extractLocations = events.filter(event => event.location).map((event) => event.location);
     var locations = [...new Set(extractLocations)];
     return locations;
 };
