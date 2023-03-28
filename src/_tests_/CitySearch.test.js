@@ -8,7 +8,7 @@ describe('<CitySearch /> component', () => {
     let locations, CitySearchWrapper;
     beforeAll(() => {
         locations = extractLocations(mockData)
-        CitySearchWrapper = shallow(<CitySearch locations={locations} />)
+        CitySearchWrapper = shallow(<CitySearch locations={locations} updateEvents={() => {}}/>)
     })
 
     test('render the text input', () => {
@@ -61,4 +61,10 @@ describe('<CitySearch /> component', () => {
         CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
         expect(CitySearchWrapper.state('query')).toBe((suggestions[0]));
     });
+
+    test('selecting a city input shows the suggestion list', () => {
+        CitySearchWrapper.find('.city').simulate('focus');
+        expect(CitySearchWrapper.state('showSuggestions')).toBe(true);
+        expect(CitySearchWrapper.find('.suggestions').prop('style')).not.toEqual({ display: 'none'});
+    })
 });
