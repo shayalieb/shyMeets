@@ -87,4 +87,3 @@ const getToken = async (code) => {
         error.json();
     }
 };
-

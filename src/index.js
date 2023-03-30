@@ -1,10 +1,12 @@
 import React from 'react';
-//import ReactDOM from 'react-dom/client';
+//import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.js';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { createRoot } from 'react-dom/client';
+
+
 
 const meetApp = document.getElementById('root');
 const root = createRoot(meetApp)
