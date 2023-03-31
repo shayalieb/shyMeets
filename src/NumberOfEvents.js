@@ -1,44 +1,35 @@
 import React, { Component } from 'react';
 
 class NumberOfEvents extends Component {
-    state = {
-        noe: 32,
-        errorMessage: ''
+    constructor() {
+        super();
+        this.state = {
+            query: 32
+        };
     }
 
-    // componentDidMount() {
-    //     this.setState({ noe: this.props.noe || 15 });
-    // }
-
-    changeNoe = (event) => {
+    handleNoe = (event) => {
         const value = event.target.value;
-        this.props.updateEvents(null, value);
-        this.setState({
-            noe: value
-        })
-        if (value < 1 || value > 32) {
+        if (value >= 1 || value <= 32) {
             this.setState({
-                infoText: 'Select a number from 1 - 32'
+                query: value
             });
-        } else {
-            this.setState({
-                infoText: ''
-            });
+            this.props.updateEvents(this.props.selectedCity, value)
         }
     };
 
     render() {
-        const { noe } = this.state;
         return (
             <div className='NumberOfEvents'>
                 <h3>Show Number of Events</h3>
                 <input
                     id='number-of-events'
                     className='noe-input'
+                    min={1}
+                    max={32}
                     type='number'
-                    value={noe}
-                    onChange={this.changeNoe}
-                    min='0'
+                    value={this.state.query}
+                    onChange={this.handleNoe}
                 >
                 </input>
             </div>

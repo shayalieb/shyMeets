@@ -10,15 +10,20 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    numberOfEvents: 32,
+    eventCount: 32,
     currentLocations: 'all',
+    selectedCity: null
   }
 
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        const showEvents = events.slice(this.state.eventCount)
+        this.setState({
+          events: showEvents,
+          locations: extractLocations(events)
+        });
       }
     });
   }
@@ -34,62 +39,66 @@ class App extends Component {
   }
 
   updateEvents = (location, eventCount) => {
-    const { currentLocations, numberOfEvents } = this.state;
-    if (location) {
-      getEvents().then((response) => {
-        const locationEvents =
+    if (!eventCount) {
+      getEvents().then((events) => {
+        const locationsEvents =
           location === 'all'
-            ? response.events
-            : response.events.filter((event) => event.location === location);
-        const events = locationEvents.slice(0, numberOfEvents);
-        return this.setState({
-          events: events,
-          currentLocations: location,
-          locations: response.locations
+            ? events
+            : events.filter((event) => event.location === location);
+        const showEvents = locationsEvents.slice(0, this.state.eventCount);
+        this.setState({
+          events: showEvents,
+          selectedCity: location
+        });
+      });
+    } else if (eventCount && !location) {
+      getEvents().then((events) => {
+        const locationEvents = events.filter((event) =>
+          this.state.locations.includes(event.location)
+        );
+        const showEvents = locationEvents.slice(0, eventCount);
+        this.setState({
+          events: showEvents,
+          eventCount: eventCount
+        })
+      })
+    } else if (this.state.selectedCity === 'all') {
+      getEvents().then((events) => {
+        const locationEvents = events;
+        const showEvents = locationEvents.slice(0, eventCount);
+        this.setState({
+          events: showEvents,
+          eventCount: eventCount
         });
       });
     } else {
-      getEvents().then((response) => {
+      getEvents().then((events) => {
         const locationEvents =
-          currentLocations === 'all'
-            ? response.events
-            : response.events.filter((event) => event.location === currentLocations);
-        const events = locationEvents.slice(0, eventCount);
-        return this.setState({
-          events: events,
-          numberOfEvents: eventCount,
-          locations: response.locations
-        });
-      });
+          this.state.locations === 'all'
+            ? events
+            : events.filter((event) => this.state.selectedCity === event.location);
+        const showEvents = locationEvents.slice(0, eventCount);
+        this.setState({
+          events: showEvents,
+          eventCount: eventCount
+        })
+      })
     }
   };
 
-
-  getData = () => {
-    const { locations, events } = this.state;
-    const data = locations.map((location) => {
-      const number = events.filter((event) => event.location === location).length
-      const city = location.split(' ,').shift()
-      return { city, number }
-    })
-    return data
-  }
-
-
-
   render() {
-    const { numberOfEvents, locations, events } = this.state;
     return (
       <div className='App'>
         <CitySearch
-          locations={locations}
+          locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
         <EventList
-          events={events}
+          events={this.state.events}
         />
         <NumberOfEvents
-          numberOfEvents={numberOfEvents}
+          selectedCity={this.state.selectedCity}
+          query={this.state.eventCount}
           updateEvents={this.updateEvents}
         />
       </div>
