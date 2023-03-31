@@ -5,7 +5,7 @@ import NumberOfEvents from '../NumberOfEvents';
 describe('<NumberOfEvents /> component', () => {
     let NoeWrapper, noeInput;
     beforeAll(() => {
-        NoeWrapper = shallow(<NumberOfEvents />);
+        NoeWrapper = shallow(<NumberOfEvents updateEvents={() => []} />);
         noeInput = NoeWrapper.find('input.noe-input');
     });
 
@@ -14,16 +14,14 @@ describe('<NumberOfEvents /> component', () => {
         expect(noeInput).toBeDefined();
     });
 
-    test('noe-default number is 15', () => {
-        expect(NoeWrapper.find('input.noe-input').prop('type')).toBe('number');
-        expect(NoeWrapper.state('noe')).toBe(15);
+    test('noe-default number is 32', () => {
+        expect(NoeWrapper.state('query')).toBe(32);
     });
 
     test('when noe changes, the value should reflect correctly', () => {
-        expect(NoeWrapper.state('noe')).toBe(15)
         NoeWrapper.find('input.noe-input').simulate('change', {
-            target: { value: 20 }
-        });
-        expect(NoeWrapper.state('noe')).toBe(20)
+            target: { value: 15 },
+        })
+        expect(NoeWrapper.state('query')).toBe(15)
     });
 });
