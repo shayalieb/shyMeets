@@ -61,7 +61,23 @@ describe('<App /> integration', () => {
     //     const suggestionItems = AppWrapper.find(CitySearch).find('.suggestions li');
     //     await suggestionItems.at(suggestionItems.length - 1).simulate('click');
     //     const allEvents = await getEvents();
-    //     expect(AppWrapper.state('events')).toEqual(allEvents);
+    //     AppWrapper.setState({events: []})
+    //     console.log(AppWrapper.state('events').length, 'events')
+    //     expect(AppWrapper.state('events')).toEqual([]);
     //     AppWrapper.unmount();
     //   });
+    test('events state changes number of events', () => {
+        const AppWrapper = mount(<App />);
+        const eventCount = AppWrapper.state('eventCount');
+        expect(eventCount).toEqual(AppWrapper.find(NumberOfEvents).props().query);
+        AppWrapper.unmount();
+    })
+    test('get a list of events that match the number that was input by the user', async () => {
+        const AppWrapper = mount(<App />);
+        const NoeWrapper = AppWrapper.find(NumberOfEvents);
+        const selectedNumber = 32;
+        const event = { target: { value: selectedNumber }};
+        await NoeWrapper.instance().handleNoe(event);
+        expect(AppWrapper.state("eventCount")).toEqual(selectedNumber);
+    })
 });

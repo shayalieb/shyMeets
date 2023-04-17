@@ -30,8 +30,8 @@ class NumberOfEvents extends Component {
                     type='number'
                     value={this.state.query}
                     onChange={this.handleNoe}
-                >
-                </input>
+                />
+          
             </div>
         )
     }
