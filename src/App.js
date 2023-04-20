@@ -25,7 +25,7 @@ class App extends Component {
           locations: extractLocations(events)
         });
       }
-    });
+    }).then(() => this.updateEvents('all'));
   }
 
   componentWillUnmount() {
@@ -51,17 +51,6 @@ class App extends Component {
           selectedCity: location
         });
       });
-    } else if (eventCount && !location) {
-      getEvents().then((events) => {
-        const locationEvents = events.filter((event) =>
-          this.state.locations.includes(event.location)
-        );
-        const showEvents = locationEvents.slice(0, eventCount);
-        this.setState({
-          events: showEvents,
-          eventCount: eventCount
-        })
-      })
     } else if (this.state.selectedCity === 'all') {
       getEvents().then((events) => {
         const locationEvents = events;
