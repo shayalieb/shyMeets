@@ -10,18 +10,19 @@ const feature = loadFeature('./src/features/showHideEventDetails.feature');
 
 defineFeature(feature, test => {
     let AppWrapper;
-    test('an event element is collapsed by default', ({ given, when, then }) => {
-        given('has not selected a city', () => {
+    test('An event element is collapsed by default', ({ given, when, then }) => {
+        given('the user has not selected a city', () => {
             //this remain empty as there has been no action yet
         });
 
         when('the user opens the app with no interaction yet ', () => {
             AppWrapper = mount(<App />)
+            AppWrapper.state.events = mockData;
         });
 
         then('all events are shown but details collapsed', () => {
             AppWrapper.update()
-            expect(AppWrapper.find('event .expanded')).toHaveLength(0)
+            expect(AppWrapper.find('event .expanded')).toHaveLength(mockData.length)
         });
     });
 
