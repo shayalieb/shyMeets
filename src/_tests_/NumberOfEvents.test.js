@@ -5,7 +5,7 @@ import NumberOfEvents from '../NumberOfEvents';
 describe('<NumberOfEvents /> component', () => {
     let NoeWrapper, noeInput;
     beforeAll(() => {
-        NoeWrapper = shallow(<NumberOfEvents updateEvents={() => []} />);
+        NoeWrapper = shallow(<NumberOfEvents updateEvents={() => {}} />);
         noeInput = NoeWrapper.find('input.noe-input');
     });
 

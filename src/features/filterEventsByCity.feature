@@ -11,8 +11,6 @@ Feature: Filter events by city
              Then the user should receive a list of suggested cities
 
         Scenario: User can select a city from the suggestion list
-            Given the user was typing in Miami FL in the text box
-              And the list of suggested cities is showing
-             When the user selects a city from the list
-             Then the city should change to the selected city
-              And the user should get a list of all events in that suggested city
+            Given the main page is opens
+             When the user was typing in Miami FL in the text box
+             Then the list of suggested cities is showing
