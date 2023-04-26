@@ -1,11 +1,11 @@
 Feature: Show or hide event details
 
-        Scenario: An event element is collapsed by default
+        Scenario: the user has not opened or interacted with the app yet
             Given the user has not selected a city
              When the user opens the app with no interaction yet
              Then all events are shown but details collapsed
 
-        Scenario: User can expand an event to its see details
+        Scenario: the event details will expand
             Give the user selects an event
              When the user clicks the see more details button
              Then the event details will expand
