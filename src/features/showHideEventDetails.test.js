@@ -1,56 +1,56 @@
 import React from "react";
-import { loadFeature, defineFeature } from "jest-cucumber";
 import { mount } from "enzyme";
-import App from "../App";
+import { loadFeature, defineFeature } from "jest-cucumber";
+import App from '../App'
 import { mockData } from "../mock-data";
-import Event from "../Event";
 
 const feature = loadFeature('./src/features/showHideEventDetails.feature');
 
 defineFeature(feature, test => {
     let AppWrapper;
-    test('the user has not opened or interacted with the app yet', ({ given, when, then }) => {
-        given('the user has not selected a city', () => {
-            //this remain empty as there has been no action yet
+    test('event element is collapsed by default', ({ given, when, then }) => {
+        given('the user has not selected a location', () => {
+            //Because the app has not been open
         });
 
-        when('the user opens the app with no interaction yet', () => {
+        when('the app is opened but there is no action yet', () => {
             AppWrapper = mount(<App />)
-            AppWrapper.state.events = mockData;
         });
 
-        then('all events are shown but details collapsed', () => {
+        then('all events should be hidden by default', () => {
             AppWrapper.update();
-            expect(AppWrapper.state.events).toHaveLength(mockData.length)
-
+            expect(AppWrapper.find('.event button.details-button')).toHaveLength(0)
         });
     });
 
-    test('the event details will expand', ({ when, then }) => {
-        let AppWrapper
-        when('the user clicks the see more details button', () => {
+    test('The user can expand event details by clicking show details', ({ given, when, then }) => {
+        given('the user has selected an event', () => {
             AppWrapper = mount(<App />)
-            //AppWrapper.state = mockData
         });
 
-        then('the event details will expand', () => {
-            AppWrapper.update()
-            AppWrapper.find('.event .details-button').at(0).simulate('click')
-            //expect(EventWrapper.state).toHaveLength(mockData.event)
+        when('the user clicks on the show details button', () => {
+            AppWrapper.update();
+            AppWrapper.find('.event .details-button').at(0).simulate('click');
+        });
+
+        then('event details should be displayed', () => {
+            expect(AppWrapper.find('.event .details')).toHaveLength(1);
         });
     });
 
-    test('User can collapse an event and hide its details', ({ given, when, then }) => {
-        given('the user has seen the details', () => {
+    test('User can collapse and hide event details', ({ given, when, then }) => {
+        given('the user is done with viewing the event', async () => {
+            AppWrapper = await mount(<App />);
 
         });
 
-        when('the user clicks the hide details button', () => {
-
+        when('the user clicks hide details button', () => {
+            AppWrapper.update();
+            // AppWrapper.find('.event .details-button').at(0).simulate('click')
         });
 
-        then('the details page will collapse and be hidden', () => {
-
+        then('the details should be collapsed nad hidden', () => {
+            //expect(AppWrapper, find('.event .details')).toHaveLength(0)
         });
     });
 });
