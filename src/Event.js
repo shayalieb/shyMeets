@@ -14,7 +14,7 @@ class Event extends Component {
         const { start } = event;
         const { dateTime, date, timeZone } = start;
         const eventDate = dateTime || date;
-        console.log(start, eventDate)
+
         return (
             <div className='event'>
                 <h2 className='summary'>{event.summary}</h2>
@@ -22,7 +22,7 @@ class Event extends Component {
                     {new Date(eventDate).toString()}
                 </p>
                 <p className='event-location'>
-                    {`Location: ${event.location}`}
+                    {`Location: ${event.location || ''}`}
                 </p>
                 <button
                     className='details-button'
