@@ -14,6 +14,7 @@ class Event extends Component {
         const { start } = event;
         const { dateTime, date, timeZone } = start;
         const eventDate = dateTime || date;
+        console.log(start, eventDate)
         return (
             <div className='event'>
                 <h2 className='summary'>{event.summary}</h2>
