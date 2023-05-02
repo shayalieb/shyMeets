@@ -11,11 +11,14 @@ class Event extends Component {
     render() {
         const { event } = this.props
         const { collapsed } = this.state;
+        const { start } = event;
+        const { dateTime, date, timeZone } = start;
+        const eventDate = dateTime || date;
         return (
             <div className='event'>
                 <h2 className='summary'>{event.summary}</h2>
                 <p className='event-start'>
-                    {new Date(event.start.dateTime).toString()}
+                    {new Date(eventDate).toString()}
                 </p>
                 <p className='event-location'>
                     {`Location: ${event.location}`}
