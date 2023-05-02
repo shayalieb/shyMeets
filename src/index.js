@@ -6,6 +6,10 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { createRoot } from 'react-dom/client';
 
+import * as atatus from 'atatus-spa';
+
+atatus.config('caa90900586d4e5ca063f9e81df7c4f9').install();
+
 
 
 const meetApp = document.getElementById('root');
