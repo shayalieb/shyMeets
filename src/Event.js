@@ -18,7 +18,7 @@ class Event extends Component {
                     {new Date(event.start.date).toString()}
                 </p>
                 <p className='event-location'>
-                    {event.location}
+                    {`Location: ${event.location}`}
                 </p>
                 <button
                     className='details-button'
