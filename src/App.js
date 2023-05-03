@@ -5,6 +5,7 @@ import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import NumberOfEvents from './NumberOfEvents'
 import { extractLocations, getEvents } from './api';
+import { WarningAlert } from "./alert";
 
 class App extends Component {
   state = {
@@ -12,7 +13,8 @@ class App extends Component {
     locations: [],
     eventCount: 32,
     currentLocations: 'all',
-    selectedCity: null
+    selectedCity: null,
+    warningText: ''
   }
 
   componentDidMount() {
@@ -30,6 +32,14 @@ class App extends Component {
 
   componentWillUnmount() {
     this.mounted = false;
+  }
+
+  promptOfflineWarning = () => {
+    if (!navigator.onLine) {
+      this.setState({
+        warningText: 'App is offline, and may not be up to date!'
+      })
+    }
   }
 
   updateNoe(number) {
@@ -78,6 +88,8 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <h1 className="welcomeText">Welcome to the shyMeets App</h1>
+        <WarningAlert text={this.state.warningText} />
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
