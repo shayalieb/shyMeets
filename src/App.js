@@ -4,8 +4,9 @@ import './nprogress.css'
 import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import NumberOfEvents from './NumberOfEvents'
-import { extractLocations, getEvents } from './api';
+import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import { WarningAlert } from "./alert";
+import WelcomeScreen from "./WelcomeScreen";
 
 class App extends Component {
   state = {
@@ -14,20 +15,35 @@ class App extends Component {
     eventCount: 32,
     currentLocations: 'all',
     selectedCity: null,
-    warningText: ''
+    warningText: '',
+    showWelcomeScreen: undefined
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        const showEvents = events.slice(this.state.eventCount)
-        this.setState({
-          events: showEvents,
-          locations: extractLocations(events)
-        });
-      }
-    }).then(() => this.updateEvents('all'));
+    const accessToken = localStorage.getItem('access_token');
+    const isValidToken = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get('code');
+    if ((code || isValidToken) && this.mounted) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({
+            events,
+            locations: extractLocations(events)
+          });
+        }
+      });
+    }
+    // getEvents().then((events) => {
+    //   if (this.mounted) {
+    //     const showEvents = events.slice(this.state.eventCount)
+    //     this.setState({
+    //       events: showEvents,
+    //       locations: extractLocations(events)
+    //     });
+    //   }
+    // }).then(() => this.updateEvents('all'));
   }
 
   componentWillUnmount() {
@@ -86,24 +102,28 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div className='App'>
-        <WarningAlert text={this.state.warningText} />
-        <h1 className="welcomeText">Welcome to the shyMeets App</h1>
-        <CitySearch
-          locations={this.state.locations}
-          updateEvents={this.updateEvents}
-        />
-        <EventList
-          events={this.state.events}
-        />
-        <NumberOfEvents
-          selectedCity={this.state.selectedCity}
-          query={this.state.eventCount}
-          updateEvents={this.updateEvents}
-        />
-      </div>
-    )
+    if (this.state.showWelcomeScreen === undefined)
+      return (
+        <div className='App'>
+          <WarningAlert text={this.state.warningText} />
+          <CitySearch
+            locations={this.state.locations}
+            updateEvents={this.updateEvents}
+          />
+          <EventList
+            events={this.state.events}
+          />
+          <NumberOfEvents
+            selectedCity={this.state.selectedCity}
+            query={this.state.eventCount}
+            updateEvents={this.updateEvents}
+          />
+          <WelcomeScreen
+            showWelcomeScreen={this.state.showWelcomeScreen}
+            getAccessToken={() => { getAccessToken() }}
+          />
+        </div>
+      );
   }
 }
 
