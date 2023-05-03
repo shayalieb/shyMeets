@@ -8,14 +8,15 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "meet-app-sample-icon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "meet-app-sample-logo.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
