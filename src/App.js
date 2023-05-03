@@ -88,8 +88,8 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <h1 className="welcomeText">Welcome to the shyMeets App</h1>
         <WarningAlert text={this.state.warningText} />
+        <h1 className="welcomeText">Welcome to the shyMeets App</h1>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
