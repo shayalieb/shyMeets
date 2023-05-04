@@ -4,7 +4,7 @@ import './nprogress.css'
 import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import NumberOfEvents from './NumberOfEvents'
-import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
+import { extractLocations, getEvents, checkToken, getAccessToken, isLoggedIn } from './api';
 import { WarningAlert } from "./alert";
 import WelcomeScreen from "./WelcomeScreen";
 
@@ -35,15 +35,6 @@ class App extends Component {
         }
       });
     }
-    // getEvents().then((events) => {
-    //   if (this.mounted) {
-    //     const showEvents = events.slice(this.state.eventCount)
-    //     this.setState({
-    //       events: showEvents,
-    //       locations: extractLocations(events)
-    //     });
-    //   }
-    // }).then(() => this.updateEvents('all'));
   }
 
   componentWillUnmount() {
@@ -101,11 +92,23 @@ class App extends Component {
     }
   };
 
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(', ').shift()
+      return { city, number };
+    })
+    return data;
+  }
+
   render() {
-    if (this.state.showWelcomeScreen === undefined)
+    if (isLoggedIn()) {
       return (
         <div className='App'>
-          <WarningAlert text={this.state.warningText} />
+
+          <WarningAlert text={this.state.offlineText} />
+          <h1>Welcome to shyMeets App</h1>
           <CitySearch
             locations={this.state.locations}
             updateEvents={this.updateEvents}
@@ -118,12 +121,18 @@ class App extends Component {
             query={this.state.eventCount}
             updateEvents={this.updateEvents}
           />
+        </div>
+      );
+    } else {
+      return (
+        <div className='App'>
+
           <WelcomeScreen
-            showWelcomeScreen={this.state.showWelcomeScreen}
-            getAccessToken={() => { getAccessToken() }}
+            getAccessToken={getAccessToken}
           />
         </div>
       );
+    }
   }
 }
 
