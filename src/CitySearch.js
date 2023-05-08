@@ -84,7 +84,6 @@
 // export default CitySearch;
 
 import React, { Component } from 'react';
-import { getEvents } from './api';
 import { InfoAlert } from './alert';
 
 class CitySearch extends Component {
@@ -111,7 +110,7 @@ class CitySearch extends Component {
         } else {
             return this.setState({
                 query: value,
-                showSuggestions: false,
+                suggestions,
                 infoText: ''
             });
         }
