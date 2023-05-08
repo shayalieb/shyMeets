@@ -98,39 +98,62 @@ class CitySearch extends Component {
 
     handleInputChanged = (event) => {
         const value = event.target.value;
-        if (!value) {
-            this.setState({ showSuggestions: false });
+        this.setState({
+            showSuggestions: true
+        });
+        const suggestions = this.props.locations.filter((location) => {
+            return location.toUpperCase().indexOf(value.toUpperCase()) > -1
+        });
+        if (suggestions.length === 0) {
+            this.setState({
+                query: value,
+                infoText: 'Cannot find the city you are looking for, please try again with correct spelling'
+            })
+        } else {
             return this.setState({
                 query: value,
-                infoText: '',
+                showSuggestions: false,
+                infoText: ''
             });
         }
-        this.setState({ showSuggestions: true });
-        getEvents().then((events) => {
-            let locations = events.map(e => e.location);
-            const suggestions = locations.filter((event) => {
-                console.log(event, 'showMyError')
-                return event.location.toUpperCase().indexOf(value.toUpperCase()) > -1;
-            });
-            if (value && suggestions.length === 0) {
-                this.setState({
-                    query: value,
-                    infoText: 'The city you are looking for is not found, Please try again with correct spelling'
-                });
-            } else {
-                return this.setState({
-                    query: value,
-                    suggestions,
-                    infoText: '',
-                });
-            }
-        })
-    };
+    }
+    // handleInputChanged = (event) => {
+    //     const value = event.target.value;
+    //     if (!value) {
+    //         this.setState({ showSuggestions: false });
+    //         return this.setState({
+    //             query: value,
+    //             infoText: '',
+    //         });
+    //     }
+    //     this.setState({ showSuggestions: true });
+    //     getEvents().then((events) => {
+    //         let locations = events.map(e => e.location);
+    //         const suggestions = locations.filter((event) => {
+    //             console.log(event, 'showMyError')
+    //             return event.location.toUpperCase().indexOf(value.toUpperCase()) > -1;
+    //         });
+    //         console.log(location, 'myLocationError')
+    //         if (value && suggestions.length === 0) {
+    //             this.setState({
+    //                 query: value,
+    //                 infoText: 'The city you are looking for is not found, Please try again with correct spelling'
+    //             });
+    //         } else {
+    //             return this.setState({
+    //                 query: value,
+    //                 suggestions,
+    //                 infoText: '',
+    //             });
+    //         }
+    //     })
+    // };
 
     handleItemClicked = (suggestion) => {
         this.setState({
             query: suggestion,
-            showSuggestions: false
+            showSuggestions: false,
+            infoText: ''
         });
         this.props.updateEvents(suggestion)
     }
