@@ -103,7 +103,6 @@ class App extends Component {
   }
 
   render() {
-      if(this.state.showWelcomeScreen === undefined) return <div className="App" />
       if (isLoggedIn()) {
       return (
         <div className='App'>
