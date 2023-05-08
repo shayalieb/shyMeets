@@ -109,6 +109,7 @@ class CitySearch extends Component {
         getEvents().then((events) => {
             let locations = events.map(e => e.location);
             const suggestions = locations.filter((event) => {
+                console.log(event, 'showMyError')
                 return event.location.toUpperCase().indexOf(value.toUpperCase()) > -1;
             });
             if (value && suggestions.length === 0) {
