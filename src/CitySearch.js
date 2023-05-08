@@ -5,6 +5,7 @@ class CitySearch extends Component {
     constructor() {
         super()
         this.state = {
+            locations: '',
             query: '',
             suggestions: [],
             showSuggestions: undefined,
