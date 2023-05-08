@@ -110,7 +110,7 @@ class App extends Component {
       return (
         <div className='App'>
 
-          <WarningAlert text={offlineMessage} />
+          <WarningAlert text={this.state.warningText} />
           <h1>Welcome to shyMeets App</h1>
           <CitySearch
             locations={this.state.locations}
