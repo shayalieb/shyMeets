@@ -89,7 +89,7 @@ import { InfoAlert } from './alert';
 
 class CitySearch extends Component {
     state = {
-        locations: this.props.locations,
+        //locations: this.props.locations,
         query: '',
         suggestions: [],
         showSuggestions: undefined,
