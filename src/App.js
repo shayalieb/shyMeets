@@ -4,7 +4,7 @@ import './nprogress.css'
 import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import NumberOfEvents from './NumberOfEvents'
-import { extractLocations, getEvents, getAccessToken, checkToken } from './api';
+import { extractLocations, getEvents, getAccessToken, checkToken, isLoggedIn } from './api';
 import { WarningAlert } from "./alert";
 import WelcomeScreen from "./WelcomeScreen";
 
