@@ -103,7 +103,8 @@ class App extends Component {
   }
 
   render() {
-    if (isLoggedIn()) {
+      if(this.state.showWelcomeScreen === undefined) return <div className="App" />
+    // if (isLoggedIn()) {
       return (
         <div className='App'>
 
@@ -123,16 +124,16 @@ class App extends Component {
           />
         </div>
       );
-    } else {
-      return (
-        <div className='App'>
+    // } else {
+    //   return (
+    //     <div className='App'>
 
-          <WelcomeScreen
-            getAccessToken={getAccessToken}
-          />
-        </div>
-      );
-    }
+    //       <WelcomeScreen
+    //         getAccessToken={getAccessToken}
+    //       />
+    //     </div>
+    //   );
+    // }
   }
 }
 
