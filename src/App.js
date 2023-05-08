@@ -103,7 +103,8 @@ class App extends Component {
   }
 
   render() {
-    if (isLoggedIn().this.state.showWelcomeScreen === undefined) {
+    if (this.state.showWelcomeScreen === undefined) {
+      //isLoggedIn()
       return (
         <div className='App'>
 
@@ -127,7 +128,7 @@ class App extends Component {
       return (
         <div className='App'>
 
-          <WelcomeScreen
+          <WelcomeScreen 
             showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={getAccessToken}
           />
