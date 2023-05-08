@@ -22,6 +22,7 @@ class CitySearch extends Component {
         if (suggestions.length === 0) {
             this.setState({
                 query: value,
+                suggestions,
                 infoText: 'Cannot find the city you are looking for, please try again with correct spelling'
             })
         } else {
