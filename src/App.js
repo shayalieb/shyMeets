@@ -5,7 +5,7 @@ import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import NumberOfEvents from './NumberOfEvents'
 import { extractLocations, getEvents, getAccessToken, checkToken, isLoggedIn } from './api';
-import { WarningAlert } from "./alert";
+import { WarningAlert } from "./Alert";
 import WelcomeScreen from "./WelcomeScreen";
 
 class App extends Component {
@@ -103,7 +103,7 @@ class App extends Component {
   }
 
   render() {
-      if (isLoggedIn()) {
+    if (isLoggedIn()) {
       return (
         <div className='App'>
 
