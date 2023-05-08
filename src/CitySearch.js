@@ -1,22 +1,24 @@
 import React, { Component } from "react";
+//import { getEvents } from "./api";
 import { InfoAlert } from "./alert";
 
 class CitySearch extends Component {
     constructor() {
         super();
-        this.state = {
+        this.state = {    
+            locations: this.props.locations,
             query: '',
             suggestions: [],
             showSuggestions: undefined,
             infotext: ''
         };
     }
-
     handleInputChanged = (event) => {
         const value = event.target.value;
         this.setState({
             showSuggestions: true
         });
+
         const suggestions = this.props.locations.filter((location) => {
             return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
         });
@@ -37,7 +39,8 @@ class CitySearch extends Component {
     handleItemClicked = (suggestions) => {
         this.setState({
             query: suggestions,
-            showSuggestions: false
+            showSuggestions: false,
+            infotext: ''
         });
         this.props.updateEvents(suggestions);
     };
