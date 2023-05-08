@@ -103,9 +103,6 @@ class App extends Component {
   }
 
   render() {
-    const offlineMessage = navigator.onLine
-      ? ''
-      : 'You are currently offline. The list of events may not be up to date!'
     if (isLoggedIn()) {
       return (
         <div className='App'>
