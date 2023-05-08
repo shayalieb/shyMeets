@@ -108,8 +108,8 @@ class CitySearch extends Component {
         this.setState({ showSuggestions: true });
         getEvents().then((events) => {
             let locations = events.map(e => e.location);
-            const suggestions = locations.filter((location) => {
-                return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
+            const suggestions = locations.filter((event) => {
+                return event.location.toUpperCase().indexOf(value.toUpperCase()) > -1;
             });
             if (value && suggestions.length === 0) {
                 this.setState({
