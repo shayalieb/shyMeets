@@ -16,7 +16,7 @@ class App extends Component {
     currentLocations: 'all',
     selectedCity: null,
     warningText: '',
-    showWelcomeScreen: undefined
+    showWelcomeScreen: true
   }
 
   async componentDidMount() {
@@ -103,10 +103,10 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.warningText, 'warningText')
     if (isLoggedIn()) {
       return (
         <div className='App'>
-
           <WarningAlert text={this.state.warningText} />
           <h1>Welcome to shyMeets App</h1>
           <CitySearch
@@ -126,7 +126,7 @@ class App extends Component {
     } else {
       return (
         <div className='App'>
-
+          <h1>Hello</h1>
           <WelcomeScreen
             showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={getAccessToken}

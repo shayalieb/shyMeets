@@ -3,7 +3,8 @@ import React from 'react';
 import './WelcomeScreen.css';
 
 function WelcomeScreen(props) {
-    return props.WelcomeScreen ? (
+    console.log(props, 'propsError')
+    return props.showWelcomeScreen ? (
         <div className='WelcomeScreen'>
             <h1>Welcome to shyMeets App</h1>
             <h4>
