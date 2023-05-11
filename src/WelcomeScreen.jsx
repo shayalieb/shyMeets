@@ -15,21 +15,20 @@ function WelcomeScreen(props) {
                                 src='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Log o.svg'
                                 alt='Google sign-in'
                             />
+                            <button
+                                onClick={() => { props.getAccessToken }}
+                                rel='nofollow noopener'
+                                class='btn-text'
+                            >
+                                <b>Sign in with Google</b>
+                            </button>
                         </div>
-                        <button
-                            onClick={() => { props.getAccessToken }}
-                            rel='nofollow noopener'
-                            class='btn-text'
-                        >
-                            <b>Sign in with Google</b>
-                        </button>
                     </div>
+                    <a href='https://shayalieb.github.io/shyMeets/privacy.html'
+                        rel='nofollow noopener'>
+                        <a href='https://shayalieb.github.io/shyMeets/privacy.html'>Privacy Policy</a>
+                    </a>
                 </div>
-                <a href='https://shayalieb.github.io/shyMeets/privacy.html'
-                    rel='nofollow noopener'>
-                    <a href='https://shayalieb.github.io/shyMeets/privacy.html'>Privacy Policy</a>
-                </a>
-
             </div>
         ) : null
 }
