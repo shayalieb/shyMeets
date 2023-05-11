@@ -103,7 +103,8 @@ class App extends Component {
   }
 
   render() {
-    if (isLoggedIn()) {
+    if (this.state.showWelcomeScreen === undefined) {
+      // if (isLoggedIn()) {
       return (
         <div className='App'>
           <WarningAlert text={this.state.warningText} />
