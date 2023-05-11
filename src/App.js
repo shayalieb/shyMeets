@@ -122,7 +122,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <WelcomeScreen
-          showWelcomeScreen={this.state.WelcomeScreen}
+          showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => {
             getAccessToken();
           }}
