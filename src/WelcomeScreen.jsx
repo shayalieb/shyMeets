@@ -16,7 +16,7 @@ function WelcomeScreen(props) {
                                 alt='Google sign-in'
                             />
                             <button
-                                onClick={() => { props.getAccessToken }}
+                                onClick={() => { props.getAccessToken() }}
                                 rel='nofollow noopener'
                                 class='btn-text'
                             >
