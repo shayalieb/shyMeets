@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    this.mounted.true;
+    this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
     const isValidToken = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
@@ -30,9 +30,9 @@ class App extends Component {
     const authorized = code || isValidToken;
     const isLocal = window.location.href.indexOf('localhost') > -1;
     this.setState({ showWelcomeScreen: !authorized && isLocal })
-    if(( authorized || isLocal ) && this.mounted) {
+    if ((authorized || isLocal) && this.mounted) {
       getEvents().then((events) => {
-        if(this.mounted) {
+        if (this.mounted) {
           this.setState({
             events: events,
             eventData: events,
@@ -42,7 +42,7 @@ class App extends Component {
         }
       })
     }
-    if(!navigator.onLine) {
+    if (!navigator.onLine) {
       this.setState({
         warningText: 'The app is offline and data may not be up to date!'
       })
