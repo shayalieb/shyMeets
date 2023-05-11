@@ -103,64 +103,38 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.showWelcomeScreen === undefined)
-      //   return <div className='App' />;
-      // return (
-      //   <div className='App'>
-      //     <WarningAlert text={this.state.warningText} />;
-      //     <h1>Welcome to shyMeets App</h1>
-      //     <CitySearch
-      //       locations={this.state.locations}
-      //       updateEvents={this.updateEvents}
-      //     />
-      //     <EventList
-      //       events={this.state.events}
-      //     />
-      //     <NumberOfEvents
-      //       selectedCity={this.state.selectedCity}
-      //       query={this.state.eventCount}
-      //       updateEvents={this.updateEvents}
-      //     />
-      //     <WelcomeScreen
-      //       showWelcomeScreen={this.state.showWelcomeScreen}
-      //       getAccessToken={() => {
-      //         getAccessToken();
-      //       }}
-      //     />
-      //   </div>
-      //)
-      if (isLoggedIn(true)) {
-        return (
-          <div className='App'>
-            <WarningAlert text={this.state.warningText} />
-            <h1>Welcome to shyMeets App</h1>
-            <CitySearch
-              locations={this.state.locations}
-              updateEvents={this.updateEvents}
-            />
-            <EventList
-              events={this.state.events}
-            />
-            <NumberOfEvents
-              selectedCity={this.state.selectedCity}
-              query={this.state.eventCount}
-              updateEvents={this.updateEvents}
-            />
-          </div>
-        );
-      } else {
-        return (
-          <div className='App'>
-            <h1>Hello</h1>
-            <WelcomeScreen
-              showWelcomeScreen={this.state.showWelcomeScreen}
-              getAccessToken={() => {
-                getAccessToken()
-              }}
-            />
-          </div>
-        );
-      }
+    if (isLoggedIn()) {
+      return (
+        <div className='App'>
+          <WarningAlert text={this.state.warningText} />
+          <h1>Welcome to shyMeets App</h1>
+          <CitySearch
+            locations={this.state.locations}
+            updateEvents={this.updateEvents}
+          />
+          <EventList
+            events={this.state.events}
+          />
+          <NumberOfEvents
+            selectedCity={this.state.selectedCity}
+            query={this.state.eventCount}
+            updateEvents={this.updateEvents}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div className='App'>
+          <h1>Hello</h1>
+          <WelcomeScreen
+            showWelcomeScreen={this.state.showWelcomeScreen}
+            getAccessToken={() => {
+              getAccessToken()
+            }}
+          />
+        </div>
+      );
+    }
   }
 }
 
