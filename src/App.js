@@ -103,7 +103,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.warningText, 'warningText')
     if (isLoggedIn()) {
       return (
         <div className='App'>
@@ -129,7 +128,9 @@ class App extends Component {
           <h1>Hello</h1>
           <WelcomeScreen
             showWelcomeScreen={this.state.showWelcomeScreen}
-            getAccessToken={getAccessToken}
+            getAccessToken={() => {
+              getAccessToken()
+            }}
           />
         </div>
       );
