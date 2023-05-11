@@ -12,6 +12,8 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
+    data: [],
+    eventData: [],
     eventCount: 32,
     currentLocations: 'all',
     selectedCity: null,
@@ -20,22 +22,50 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    this.mounted = true;
+    this.mounted.true;
     const accessToken = localStorage.getItem('access_token');
     const isValidToken = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
-    if ((code || isValidToken) && this.mounted) {
+    const authorized = code || isValidToken;
+    const isLocal = window.location.href.indexOf('localhost') > -1;
+    this.setState({ showWelcomeScreen: !authorized && isLocal })
+    if(( authorized || isLocal ) && this.mounted) {
       getEvents().then((events) => {
-        if (this.mounted) {
+        if(this.mounted) {
           this.setState({
-            events,
-            locations: extractLocations(events)
-          });
+            events: events,
+            eventData: events,
+            locations: extractLocations(events),
+            data: this.getData(extractLocations(events), events)
+          })
         }
-      });
+      })
+    }
+    if(!navigator.onLine) {
+      this.setState({
+        warningText: 'The app is offline and data may not be up to date!'
+      })
     }
   }
+
+  // async componentDidMount() {
+  //   this.mounted = true;
+  //   const accessToken = localStorage.getItem('access_token');
+  //   const isValidToken = (await checkToken(accessToken)).error ? false : true;
+  //   const searchParams = new URLSearchParams(window.location.search);
+  //   const code = searchParams.get('code');
+  //   if ((code || isValidToken) && this.mounted) {
+  //     getEvents().then((events) => {
+  //       if (this.mounted) {
+  //         this.setState({
+  //           events,
+  //           locations: extractLocations(events)
+  //         });
+  //       }
+  //     });
+  //   }
+  // }
 
   componentWillUnmount() {
     this.mounted = false;
@@ -47,13 +77,13 @@ class App extends Component {
     })
   }
 
-  promptOfflineWarning = () => {
-    if (!navigator.onLine) {
-      this.setState({
-        warningText: 'App is offline, and may not be up to date!'
-      })
-    }
-  }
+  // promptOfflineWarning = () => {
+  //   if (!navigator.onLine) {
+  //     this.setState({
+  //       warningText: 'App is offline, and may not be up to date!'
+  //     })
+  //   }
+  // }
 
   updateEvents = (location, eventCount) => {
     if (!eventCount) {
