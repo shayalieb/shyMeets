@@ -42,11 +42,11 @@ class App extends Component {
         }
       })
     }
-    if (!navigator.onLine) {
-      this.setState({
-        warningText: 'The app is offline and data may not be up to date!'
-      })
-    }
+    // if (!navigator.onLine) {
+    //   this.setState({
+    //     warningText: 'The app is offline and data may not be up to date!'
+    //   })
+    // }
   }
 
   // async componentDidMount() {
@@ -77,13 +77,13 @@ class App extends Component {
     })
   }
 
-  // promptOfflineWarning = () => {
-  //   if (!navigator.onLine) {
-  //     this.setState({
-  //       warningText: 'App is offline, and may not be up to date!'
-  //     })
-  //   }
-  // }
+  promptOfflineWarning = () => {
+    if (!navigator.onLine) {
+      this.setState({
+        warningText: 'App is offline, and may not be up to date!'
+      })
+    }
+  }
 
   updateEvents = (location, eventCount) => {
     if (!eventCount) {
