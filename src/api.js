@@ -51,6 +51,7 @@ export const getEvents = async () => {
     if (!navigator.onLine) {
         const data = localStorage.getItem('lastEvents');
         NProgress.done();
+        console.log(data, 'offlineError')
         return data ? JSON.parse(data).events : [];
     }
 
