@@ -151,6 +151,7 @@ class App extends Component {
           query={this.state.eventCount}
           updateEvents={this.updateEvents}
         />
+        <div></div>
         <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => {
