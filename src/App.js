@@ -24,7 +24,7 @@ class App extends Component {
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
-    const isValidToken = (await checkToken(accessToken)).error ? false : true;
+    const isValidToken = navigator.onLine ? ((await checkToken(accessToken)).error ? false : true) : true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
     const authorized = code || isValidToken;
