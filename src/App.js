@@ -1,41 +1,62 @@
 import React, { Component } from "react";
-import EventList from './EventList';
-import CitySearch from './CitySearch';
-import NumberOfEvents from './NumberOfEvents';
-import WelcomeScreen from './WelcomeScreen'
-import { getEvents, checkToken, getToken } from './api';
-import './App.css';
-import './nprogress.css';
+import "./App.css";
+import CitySearch from "./CitySearch";
+import EventList from "./EventList";
+import NumberOfEvents from "./NumberOfEvents";
+import WelcomeScreen from "./WelcomeScreen";
+import { getEvents, extractLocations, getAccessToken, checkToken } from "./api";
+import "./nprogress.css";
+import { ErrorAlert } from "./alert.js";
 
 class App extends Component {
   state = {
     events: [],
-    currentLocations: 'all',
-    offlineText: '',
-    numberOfevents: 32,
+    eventData: [],
     locations: [],
-    tokenCheck: false,
-    page: null,
+    eventCount: 32,
+    selectedCity: null,
+    errorText: "",
+    showWelcomeScreen: undefined,
+    data: [],
+  };
+
+  getData = (locations, events) => {
+    const data = locations.map((location) => {
+      const number = events.filter(
+        (event) => event.location === location
+      ).length;
+      const city = location.split(", ").shift();
+      return { city, number };
+    });
+    return data;
   };
 
   async componentDidMount() {
-    const accessToken = localStorage.getItem('access_token');
-    const validToken = accessToken !== null ? await checkToken(accessToken) : false;
-    this.setState({
-      tokenCheck: validToken
-    });
-
-    if (validToken === true) this.updateEvents()
-
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get('code');
-
     this.mounted = true;
-    if (code && this.mounted === true && validToken === false) {
+    const accessToken = localStorage.getItem("access_token");
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    const authorized = code || isTokenValid;
+    const isLocal = window.location.href.indexOf("localhost") > -1;
+    this.setState({ showWelcomeScreen: !authorized && !isLocal });
+    if ((authorized || isLocal) && this.mounted) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({
+            events: events,
+            eventData: events,
+            locations: extractLocations(events),
+            data: this.getData(extractLocations(events), events),
+          });
+        }
+      });
+    }
+
+    if (!navigator.onLine) {
       this.setState({
-        tokenCheck: true
-      })
-      this.updateEvents();
+        errorText: "The app is using cached data",
+      });
     }
   }
 
@@ -43,68 +64,79 @@ class App extends Component {
     this.mounted = false;
   }
 
-  getData = () => {
-    const { locations, events } = this.state;
-    const data = locations.map((location) => {
-      const number = events.filter((event) => event.location === location).length;
-      const city = location.split(' ').shift();
-      return { city, number };
-    });
-    return data;
-  }
-
   updateEvents = (location, eventCount) => {
-    console.log('Update events valid token:', this.state.tokenCheck);
-    const { currentLocations, numberOfevents } = this.setState;
-    if (location) {
-      getEvents().then((response) => {
+    if (!eventCount) {
+      getEvents().then((events) => {
         const locationEvents =
-          location === 'all'
-            ? response.events
-            : response.events.filter((event) => event.location === location);
-        const events = locationEvents.slice(0, numberOfevents);
-        return this.setState({
-          events: events,
-          currentLocations: location,
-          locations: response.locations
+          location === "all"
+            ? events
+            : events.filter((event) => event.location === location);
+        const shownEvents = locationEvents.slice(0, this.state.eventCount);
+        this.setState({
+          events: shownEvents,
+          selectedCity: location,
+        });
+      });
+    } else if (eventCount && !location) {
+      getEvents().then((events) => {
+        const locationEvents = events.filter((event) =>
+          this.state.locations.includes(event.location)
+        );
+        const shownEvents = locationEvents.slice(0, eventCount);
+        this.setState({
+          events: shownEvents,
+          eventCount: eventCount,
+        });
+      });
+    } else if (this.state.selectedCity === "all") {
+      getEvents().then((events) => {
+        const locationEvents = events;
+        const shownEvents = locationEvents.slice(0, eventCount);
+        this.setState({
+          events: shownEvents,
+          eventCount: eventCount,
         });
       });
     } else {
-      getEvents().then((response) => {
+      getEvents().then((events) => {
         const locationEvents =
-          currentLocations === 'all'
-            ? response.events
-            : response.events.filter((event) => event.location === currentLocations);
-        const events = locationEvents.slice(0, eventCount);
-        return this.setState({
-          events: events,
-          numberOfevents: eventCount,
-          locations: response.locations
+          this.state.locations === "all"
+            ? events
+            : events.filter(
+              (event) => this.state.selectedCity === event.location
+            );
+        const shownEvents = locationEvents.slice(0, eventCount);
+        this.setState({
+          events: shownEvents,
+          eventCount: eventCount,
         });
       });
     }
   };
 
   render() {
-    const { locations, numberOfevents, events, tokenCheck } = this.state;
-    return checkToken = false ? (
-      <div className="App">
-        <WelcomeScreen />
-      </div>
-    ) : (
-      <div className="App">
-        <h1>shyMeets App</h1>
-        <h4>Choose you nearest city</h4>
+    if (this.state.showWelcomeScreen === undefined)
+      return <div className='App' />;
+    return (
+      <div className='App'>
+        <ErrorAlert text={this.state.errorText} />
+        <br />
+        <br />
         <CitySearch
+          locations={this.state.locations}
           updateEvents={this.updateEvents}
-          locations={locations}
         />
         <NumberOfEvents
+          selectedCity={this.state.selectedCity}
+          query={this.state.eventCount}
           updateEvents={this.updateEvents}
-          numberOfevents={numberOfevents}
         />
-        <EventList
-          events={events}
+        <EventList events={this.state.events} />
+        <WelcomeScreen
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => {
+            getAccessToken();
+          }}
         />
       </div>
     );
