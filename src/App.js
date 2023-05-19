@@ -127,8 +127,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <NumberOfEvents
-          selectedCity={this.state.selectedCity}
-          query={this.state.eventCount}
+          eventCount={this.eventCount}
           updateEvents={this.updateEvents}
         />
         <EventList events={this.state.events} />
