@@ -97,7 +97,7 @@ class App extends Component {
         <h4>Choose you nearest city</h4>
         <CitySearch
           updateEvents={this.updateEvents}
-          locations={location}
+          locations={locations}
         />
         <NumberOfEvents
           updateEvents={this.updateEvents}
