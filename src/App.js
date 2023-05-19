@@ -119,6 +119,7 @@ class App extends Component {
       return <div className='App' />;
     return (
       <div className='App'>
+        <h1>shyMeets App</h1>
         <ErrorAlert text={this.state.errorText} />
         <br />
         <br />
