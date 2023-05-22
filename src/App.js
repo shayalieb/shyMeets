@@ -55,7 +55,7 @@ class App extends Component {
 
     if (!navigator.onLine) {
       this.setState({
-        errorText: "The app is offline, content is not up to dat",
+        errorText: "The app is offline, content is not up to date",
       });
     }
   }
