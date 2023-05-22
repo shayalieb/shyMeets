@@ -6,7 +6,7 @@ import NumberOfEvents from "./NumberOfEvents";
 import WelcomeScreen from "./WelcomeScreen";
 import { getEvents, extractLocations, getAccessToken, checkToken } from "./api";
 import "./nprogress.css";
-import { ErrorAlert } from "./alert.js";
+import { ErrorAlert, WarningAlert } from "./alert.js";
 
 class App extends Component {
   state = {
@@ -119,6 +119,12 @@ class App extends Component {
       return <div className='App' />;
     return (
       <div className='App'>
+        <WelcomeScreen
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => {
+            getAccessToken();
+          }}
+        />
         <h1>shyMeets App</h1>
         <ErrorAlert text={this.state.errorText} />
         <br />
@@ -132,12 +138,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <EventList events={this.state.events} />
-        <WelcomeScreen
-          showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => {
-            getAccessToken();
-          }}
-        />
+        <WarningAlert text={this.state.errorText} />
       </div>
     );
   }
