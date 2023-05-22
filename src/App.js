@@ -119,12 +119,6 @@ class App extends Component {
       return <div className='App' />;
     return (
       <div className='App'>
-        <WelcomeScreen
-          showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => {
-            getAccessToken();
-          }}
-        />
         <h1>shyMeets App</h1>
         <ErrorAlert text={this.state.errorText} />
         <br />
@@ -138,6 +132,12 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <EventList events={this.state.events} />
+        <WelcomeScreen
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => {
+            getAccessToken();
+          }}
+        />
         <WarningAlert text={this.state.errorText} />
       </div>
     );
