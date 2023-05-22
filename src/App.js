@@ -25,8 +25,8 @@ class App extends Component {
       const number = events.filter(
         (event) => event.location === location
       ).length;
-      const city = location.split(", ").shift();
-      return { city, number };
+      //const city = location.split(", ").shift();
+      return { number };
     });
     return data;
   };
