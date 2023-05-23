@@ -125,16 +125,16 @@ class App extends Component {
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
-        <NumberOfEvents
-          eventCount={this.eventCount}
-          updateEvents={this.updateEvents}
-        />
         <EventList events={this.state.events} />
         <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => {
             getAccessToken();
           }}
+        />
+        <NumberOfEvents
+          eventCount={this.eventCount}
+          updateEvents={this.updateEvents}
         />
         <WarningAlert text={this.state.errorText} />
       </div>
