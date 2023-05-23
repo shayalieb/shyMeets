@@ -178,6 +178,7 @@ const mockData = [
         "summary": "Dr HSU",
         "description": "Meeting with Dr Hsu and bout Menachem",
         "location": "Brooklyn, NY",
+        "genres": "other",
         "creator": {
             "email": "shayalieberman@gmail.com",
             "self": true
