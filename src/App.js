@@ -17,7 +17,7 @@ class App extends Component {
     selectedCity: null,
     errorText: '',
     showWelcomeScreen: undefined,
-   //data: [],
+    //data: [],
   };
 
   // getData = (locations, events) => {
@@ -121,8 +121,6 @@ class App extends Component {
       <div className='App'>
         <h1>shyMeets App</h1>
         <ErrorAlert text={this.state.errorText} />
-        <br />
-        <br />
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
