@@ -2,16 +2,23 @@ import React, { Component } from 'react';
 import { InfoAlert } from './alert';
 
 class CitySearch extends Component {
-    constructor() {
-        super()
-        this.state = {
-            locations: '',
-            query: '',
-            suggestions: [],
-            showSuggestions: undefined,
-            infoText: ''
-        }
+    state = {
+        locations: '',
+        query: '',
+        suggestions: [],
+        showSuggestions: true,
+        infoText: ''
     }
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //         locations: '',
+    //         query: '',
+    //         suggestions: [],
+    //         showSuggestions: undefined,
+    //         infoText: ''
+    //     }
+    // }
     handleInputChanged = (event) => {
         const value = event.target.value;
         this.setState({
@@ -30,7 +37,7 @@ class CitySearch extends Component {
             return this.setState({
                 query: value,
                 suggestions,
-                infoText: ''
+                //infoText: ''
             });
         }
     }
