@@ -6,7 +6,7 @@ class CitySearch extends Component {
         locations: '',
         query: '',
         suggestions: [],
-        showSuggestions: true,
+        showSuggestions: undefined,
         infoText: ''
     }
     // constructor() {
