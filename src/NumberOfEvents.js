@@ -33,6 +33,7 @@ class NumberOfEvents extends Component {
                 <input
                     id='number-of-events'
                     className='noe-input'
+                    placeholder='Select a number from 1-32'
                     min={1}
                     max={32}
                     type='number'
