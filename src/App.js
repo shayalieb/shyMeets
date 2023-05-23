@@ -15,21 +15,21 @@ class App extends Component {
     locations: [],
     eventCount: 32,
     selectedCity: null,
-    errorText: "",
+    errorText: '',
     showWelcomeScreen: undefined,
-    data: [],
+   //data: [],
   };
 
-  getData = (locations, events) => {
-    const data = locations.map((location) => {
-      const number = events.filter(
-        (event) => event.location === location
-      ).length;
-      //const city = location.split(", ").shift();
-      return { number };
-    });
-    return data;
-  };
+  // getData = (locations, events) => {
+  //   const data = locations.map((location) => {
+  //     const number = events.filter(
+  //       (event) => event.location === location
+  //     ).length;
+  //     //const city = location.split(", ").shift();
+  //     return { number };
+  //   });
+  //   return data;
+  // };
 
   async componentDidMount() {
     this.mounted = true;
