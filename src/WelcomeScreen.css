@@ -10,7 +10,6 @@
     height: 100%;
     top: 0;
     background: white;
-    display: inline-block;
     text-align: center;
 }
 
@@ -28,7 +27,6 @@
     background-color: #4285f4;
     border-radius: 2px;
     box-shadow: 0 0 6px #047e63;
-    display: inline-block;
     text-align: center;
 }
 
