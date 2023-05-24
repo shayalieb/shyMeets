@@ -29,9 +29,8 @@ function WelcomeScreen(props) {
                             </button>
                         </div>
                     </div>
-                    <a href='https://shayalieb.github.io/shyMeets/privacy.html'
-                        rel='nofollow noopener'>
-                        <a href='https://shayalieb.github.io/shyMeets/privacy.html'>Privacy Policy</a>
+                    <h4>Privacy Policy</h4>
+                    <a href='https://shayalieb.github.io/shyMeets/privacy.html' rel='nofollow noopener'>
                     </a>
                 </div>
             </div>
