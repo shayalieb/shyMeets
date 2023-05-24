@@ -25,6 +25,15 @@ p {
   margin: 5px 0;
 }
 
+.data-vis-wrapper {
+  background-color: #c7f2e2;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px lightslategray;
+  border-width: 2px;
+  border-style: ridge;
+}
+
 .display-none {
   display: none;
 }
