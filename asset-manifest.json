@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/shyMeets/static/css/main.3a13f9b7.css",
+    "main.css": "/shyMeets/static/css/main.dd5538ac.css",
     "main.js": "/shyMeets/static/js/main.039d60d1.js",
     "static/js/787.78696b9d.chunk.js": "/shyMeets/static/js/787.78696b9d.chunk.js",
     "service-worker.js": "/shyMeets/service-worker.js",
     "static/media/shymeets-low-resolution-color-logo.png": "/shyMeets/static/media/shymeets-low-resolution-color-logo.3debc9feca63ca278b41.png",
     "static/media/Google__G__Logo.svg.png": "/shyMeets/static/media/Google__G__Logo.svg.e983fad4418e996c0caf.png",
     "index.html": "/shyMeets/index.html",
-    "main.3a13f9b7.css.map": "/shyMeets/static/css/main.3a13f9b7.css.map",
+    "main.dd5538ac.css.map": "/shyMeets/static/css/main.dd5538ac.css.map",
     "main.039d60d1.js.map": "/shyMeets/static/js/main.039d60d1.js.map",
     "787.78696b9d.chunk.js.map": "/shyMeets/static/js/787.78696b9d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a13f9b7.css",
+    "static/css/main.dd5538ac.css",
     "static/js/main.039d60d1.js"
   ]
 }
