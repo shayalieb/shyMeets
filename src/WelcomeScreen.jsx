@@ -1,12 +1,13 @@
 import React from 'react'
 import './WelcomeScreen.css';
 import Logo from './img/shymeets-low-resolution-color-logo.png'
+import googleIcon from './img/Google__G__Logo.svg.png'
 
 function WelcomeScreen(props) {
     return props.showWelcomeScreen ?
         (
             <div className='WelcomeScreen'>
-                <img src={Logo} alt='logo' />
+                <img className='welcome-logo' src={Logo} alt='logo' />
                 <div className='welcome-screen'>
                     <h1>Welcome to shyMeets App</h1>
                     <h4>Login to view all upcoming events for KolPlay Orchestra</h4>
@@ -16,7 +17,7 @@ function WelcomeScreen(props) {
                         <div class='google-icon-wrapper'>
                             <img
                                 class='google-icon'
-                                src='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Log o.svg'
+                                src={googleIcon}
                                 alt='Google sign-in'
                             />
                             <button

@@ -1,3 +1,8 @@
+.welcome-logo {
+    width: 500px;
+    height: 300px;
+}
+
 .WelcomeScreen {
     position: fixed;
     width: 100%;
