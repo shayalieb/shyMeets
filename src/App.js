@@ -11,7 +11,7 @@ import { ErrorAlert, WarningAlert } from "./alert.js";
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
-import logo from './img/ShyFlix app logo cropped.png'
+import logo from './img/shymeets-low-resolution-color-logo.png'
 
 
 class App extends Component {
