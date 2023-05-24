@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/shyMeets/static/css/main.f255165e.css",
-    "main.js": "/shyMeets/static/js/main.cdd777cb.js",
+    "main.css": "/shyMeets/static/css/main.3a13f9b7.css",
+    "main.js": "/shyMeets/static/js/main.17e8d186.js",
     "static/js/787.78696b9d.chunk.js": "/shyMeets/static/js/787.78696b9d.chunk.js",
     "service-worker.js": "/shyMeets/service-worker.js",
     "static/media/shymeets-low-resolution-color-logo.png": "/shyMeets/static/media/shymeets-low-resolution-color-logo.3debc9feca63ca278b41.png",
     "static/media/Google__G__Logo.svg.png": "/shyMeets/static/media/Google__G__Logo.svg.e983fad4418e996c0caf.png",
     "index.html": "/shyMeets/index.html",
-    "main.f255165e.css.map": "/shyMeets/static/css/main.f255165e.css.map",
-    "main.cdd777cb.js.map": "/shyMeets/static/js/main.cdd777cb.js.map",
+    "main.3a13f9b7.css.map": "/shyMeets/static/css/main.3a13f9b7.css.map",
+    "main.17e8d186.js.map": "/shyMeets/static/js/main.17e8d186.js.map",
     "787.78696b9d.chunk.js.map": "/shyMeets/static/js/787.78696b9d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f255165e.css",
-    "static/js/main.cdd777cb.js"
+    "static/css/main.3a13f9b7.css",
+    "static/js/main.17e8d186.js"
   ]
 }
