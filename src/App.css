@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 .app-logo {
-  float: left;
+  float: top;
   width: 300px;
   height: 200px;
 }

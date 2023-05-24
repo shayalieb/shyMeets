@@ -1,12 +1,16 @@
 import React from 'react'
 import './WelcomeScreen.css';
+import Logo from './img/shymeets-low-resolution-color-logo.png'
 
 function WelcomeScreen(props) {
     return props.showWelcomeScreen ?
         (
             <div className='WelcomeScreen'>
-                <h1>Welcome to shyMeets App</h1>
-                <h4>Login to view all upcoming events for KolPlay Orchestra</h4>
+                <img src={Logo} alt='logo' />
+                <div className='welcome-screen'>
+                    <h1>Welcome to shyMeets App</h1>
+                    <h4>Login to view all upcoming events for KolPlay Orchestra</h4>
+                </div>
                 <div className='button_cont' align='center'>
                     <div class='google-btn'>
                         <div class='google-icon-wrapper'>
