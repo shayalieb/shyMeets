@@ -1,6 +1,7 @@
 .welcome-logo {
     width: 500px;
     height: 300px;
+    text-align: center;
 }
 
 .WelcomeScreen {
@@ -9,6 +10,8 @@
     height: 100%;
     top: 0;
     background: white;
+    display: inline-block;
+    text-align: center;
 }
 
 .login-button {
@@ -25,6 +28,8 @@
     background-color: #4285f4;
     border-radius: 2px;
     box-shadow: 0 0 6px #047e63;
+    display: inline-block;
+    text-align: center;
 }
 
 .google-btn:hover {
