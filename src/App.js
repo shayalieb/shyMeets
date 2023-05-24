@@ -29,8 +29,9 @@ class App extends Component {
     const { locations, events } = this.state;
     const data = locations.map((location) => {
       const number = events.filter((event) => event.location === location).length
-      const city = location.split(', ').shift()
-      return { city, number };
+      //const city = location.split(', ').shift()
+      //return { city, number };
+      return { number };
     })
     return data;
   }
@@ -139,7 +140,7 @@ class App extends Component {
                 top: 20, right: 20, bottom: 20, left: 0,
               }}
             >
-              <CartesianGrid strokeDasharray="3 3"/>
+              <CartesianGrid strokeDasharray="3 3" />
               <XAxis type="category" dataKey="city" name="city" />
               <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
