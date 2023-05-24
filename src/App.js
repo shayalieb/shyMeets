@@ -11,6 +11,7 @@ import { ErrorAlert, WarningAlert } from "./alert.js";
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
+import logo from './img/ShyFlix app logo cropped.png'
 
 
 class App extends Component {
@@ -124,7 +125,7 @@ class App extends Component {
       return <div className='App' />;
     return (
       <div className='App'>
-        <h1>shyMeets App</h1>
+        <img className="app-logo" src={logo} alt="Logo"/>
         <ErrorAlert text={this.state.errorText} />
         <CitySearch
           locations={this.state.locations}

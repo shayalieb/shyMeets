@@ -1,0 +1,19 @@
+.event {
+    background-color: #baffc9;
+    box-shadow: 10px 10px 10px lightslategray;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+
+.details-button {
+    background-color: #374C3C;
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px lightslategray;
+}
