@@ -25,7 +25,8 @@ function WelcomeScreen(props) {
                                 rel='nofollow noopener'
                                 class='btn-text'
                             >
-                                <b>Sign in with Google</b>
+                                {/* <b>Sign in with Google</b> */}
+                                Sign in with Google
                             </button>
                         </div>
                     </div>
