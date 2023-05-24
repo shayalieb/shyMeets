@@ -125,12 +125,14 @@ class App extends Component {
       return <div className='App' />;
     return (
       <div className='App'>
-        <img className="app-logo" src={logo} alt="Logo"/>
+        <img className="app-logo" src={logo} alt="Logo" />
         <ErrorAlert text={this.state.errorText} />
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
+        <br />
+        <br />
         <div className="data-vis-wrapper">
           <EventGenre events={this.state.events} />
           <ResponsiveContainer height={400}>
