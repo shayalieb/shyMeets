@@ -6,7 +6,7 @@ const EventGenre = ({ events }) => {
 
     useEffect(() => {
         const getData = () => {
-            const genres = ['Music gigs', 'Finance', 'Freelance', 'Other'];
+            const genres = ['Family', 'Finance', 'Gigs', 'Reminders', 'Tasks'];
             const data = genres.map((genre) => {
                 const value = events.filter((event) => event.summary.indexOf(genre) >= 0).length;
                 return { name: genre, value };
@@ -17,7 +17,7 @@ const EventGenre = ({ events }) => {
     }, [events])
 
 
-    const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042',]
+    const colors = ['#5a303b', '#118d7e ', '#f28500 ', '#4f86f7',]
 
     return (
         <ResponsiveContainer height={400}>
