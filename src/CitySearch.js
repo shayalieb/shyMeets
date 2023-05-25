@@ -4,38 +4,37 @@ import './CitySearch.css'
 
 class CitySearch extends Component {
     state = {
-        locations: '',
+        //locations: '',
         query: '',
         suggestions: [],
         showSuggestions: undefined,
-        infoText: ''
+        //infoText: ''
     }
 
     handleInputChanged = (event) => {
         const value = event.target.value;
-        this.setState({
-            showSuggestions: true
-        });
         const suggestions = this.props.locations.filter((location) => {
-            return location.toUpperCase().indexOf(value.toUpperCase()) > -1
+            return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
         });
         if (suggestions.length === 0) {
             this.setState({
                 query: value,
-                suggestions,
                 infoText: 'Cannot find the city you are looking for, please try again with correct spelling'
-            })
+            });
         } else {
             return this.setState({
                 query: value,
                 suggestions,
+                infoText: ''
             });
         }
     }
 
+
     handleItemClicked = (suggestion) => {
         this.setState({
             query: suggestion,
+            suggestions: [],
             showSuggestions: false,
             infoText: ''
         });
@@ -50,7 +49,7 @@ class CitySearch extends Component {
                 <input
                     type='text'
                     className='city'
-                    placeholder='City search'
+                    placeholder='Find events in your city'
                     value={this.state.query}
                     onChange={this.handleInputChanged}
                     onFocus={() => { this.setState({ showSuggestions: true }) }}
