@@ -13,8 +13,9 @@ class CitySearch extends Component {
 
     handleInputChanged = (event) => {
         const value = event.target.value;
-        console.log(this.props.locations)
         const suggestions = this.props.locations.filter((location) => {
+            console.log(location, location.toUpperCase());
+            console.log(value, "myValue")
             return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
         });
         if (suggestions.length === 0) {
