@@ -70,42 +70,58 @@ where the user is currently located in.
         <li>Then: Show a list of suggestions should appear matching what is being typed in the search box</li>
         </ul>
 </ul>        
-Scenario 3: Select a city from the suggested.
-    ● As a user: Once I choose my desired city.
-    ● I should be able to: View all events that are taking place in that city.
-    ● So that: I can choose my desired event.
-        ○ Given: View the default number of events in that city.
-        ○ When: The user chooses an event in that city
-        ○ Then: Show event details
-
-Scenario 4: Event details.
-    ● As a user: When viewing event details.
-    ● I should be able to: Show and hide event details.
-    ● So that: I can view one event at a time eliminating clutter.
-        ○ Given: Open event details.
-        ○ When: When the user chooses to open event details.
-        ○ Then: When the user chooses, close event details.
-
-Scenario 5: Show only 20 events at once unless the user specifies a number.
-    ● As a user: I do not want to see too many events at once unless I specify.
-    ● I should be able to: Either see 20 events at once or specify a certain number.
-    ● So that: I can manage how many events I see at once making it more streamlined.
-        ○ Given: View default of 20 events at a time.
-        ○ When: The user specifies the number of events to show at one time
-        ○ Then: Show the specified (or default if no number is specified) number of events
-
-Scenario 6: Not needing an internet connection to use the app.
-    ● As a user: I would like to use this app offline.
-    ● I should be able to: View my events when there is no internet connection.
-    ● So that: I can view my events even when there is no internet connection.
-        ○ Given: Cache all data in local storage
-        ○ When: The app is loaded, store all data locally
-        ○ Then: The app will function when offline or with no internet connection
-
-Scenario 7: Manually adding or removing an event
-    ● As a user: I would like to add or remove an event.
-    ● I should be able to: Add or remove an event with its details.
-    ● So that: I can add events that are not on the app's events list yet, and remove events that are not important to me.
-        ○ Given: Add or remove the event
-        ○ When: Adding events, input all details, and when removing an event remove all details from my cache
-        ○ Then: The app will add or remove all my necessary event data
+<h2>Scenario 3: Select a city from the suggested</h2>
+<ul>
+    <li>As a user: Once I choose my desired city</li>
+    <li>I should be able to: View all events that are taking place in that city</li>
+    <li>So that: I can choose my desired event</li>
+    <ul>
+        <li>Given: View the default number of events in that city</li>
+        <li>When: The user chooses an event in that city</li>
+        <li>Then: Show event details</li>
+    </ul>
+</ul>    
+<ul>
+    <h2>Scenario 4: Event details</h2>
+    <li>As a user: When viewing event details</li>
+    <li>I should be able to: Show and hide event details</li>
+    <li>So that: I can view one event at a time eliminating clutter</li>
+    <ul>
+        <li>Given: Open event details</li>
+        <li>When: When the user chooses to open event details</li>
+        <li>Then: When the user chooses, close event details</li>
+    </ul>
+</ul>    
+<ul>
+    <h2>Scenario 5: Show only 32 events at once unless the user specifies a number</h2>
+    <li>As a user: I do not want to see too many events at once unless I specify</li>
+    <li>I should be able to: Either see 32 events at once or specify a certain number
+    <li>So that: I can manage how many events I see at once making it more streamlined</li>
+    <ul>
+        <li>Given: View default of 32 events at a time</li>
+        <li>When: The user specifies the number of events to show at one time</li>
+        <li>Then: Show the specified (or default if no number is specified) number of events</li>
+    </ul>
+</ul>   
+<ul>
+<h2>Scenario 6: Not needing an internet connection to use the app.
+    <li>As a user: I would like to use this app offline</li>
+    <li>I should be able to: View my events when there is no internet connection</li>
+    <li>So that: I can view my events even when there is no internet connection</li>
+    <ul>    
+        <li>Given: Cache all data in local storage</li>
+        <li>When: The app is loaded, store all data locally</li>
+        <li>Then: The app will function when offline or with no internet connection</li>
+    </ul>
+</ul>        
+<ul>    
+    <h2>Scenario 7: Manually adding or removing an event</h2>
+    <li>As a user: I would like to add or remove an event</li>
+    <li>I should be able to: Add or remove an event with its details</li>
+    <li>So that: I can add events that are not on the app's events list yet, and remove events that are not important to me</li>
+    <ul>    
+        <li>Given: Add or remove the event</li>
+        <li>When: Adding events, input all details, and when removing an event remove all details from my cache</li>
+        <li>Then: The app will add or remove all my necessary event data</li>
+        </ul>
+    </ul>        
