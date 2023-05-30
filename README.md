@@ -12,14 +12,16 @@ Google OAuth 2 is used as a basis for verifying users by their perspective Googl
 </p>
 <ul>
     <h1>Technologies used in thi app:</h1>
-HTML
-CSS
-JavaScript 
-React
-
-User story:
-The user of this app will have the ability to track multiple events that will take place in the city
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li> 
+    <li>React</li>
+</ul>    
+<br>
+<h1>User story:</h1>
+<p>The user of this app will have the ability to track multiple events that will take place in the city
 where the user is currently located in.
+</p>    
 App Road map
 ● Default: The user has not searched for any specific city.
 ● Searching: When searching by city, the user should see a list of suggested cities.
