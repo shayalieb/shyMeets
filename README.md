@@ -35,14 +35,18 @@ where the user is currently located in.
     <li>Events by city: Search events by the city in the search box</li>
     <li>The default number of events: The default number to show at once is 32</li>
     <li>User input for default number: The user can set the number of events to show at once</li>
-
-Scenario road map:
-    ● As a [role],
-    ● I should be able to [action]
-    ● So that [benefit]
-        ○ Given
-        ○ When
-        ○ Then
+</ul>
+<ul>
+    <h1>Scenario road map:</h1>
+    <li>As a [role]</li>
+    <li>I should be able to [action]</li>
+    <li>So that [benefit]</li>
+    <ul>
+        <li>Given</li>
+        <li>When</li>
+        <li>Then</li>
+    </ul>
+</ul>    
 
 Scenario 1: What the user should expect.
     ● As a user: I should have the ability to manage the events that will be taking place in a given city.
