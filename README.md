@@ -1,3 +1,18 @@
+![Alt text](https://file%2B.vscode-resource.vscode-cdn.net/c%3A/Users/shaya/OneDrive/Documents/cfFullStack/Task%204/meet-app/src/img/Large%20Screenshot.PNG?version%3D1685465116502)
+
+shyMeets Overview:
+shyMeets App is designed to help users manage all of their events that take place in various cities around the world. The app uses serverless functionality from Google OAuth, and Amazon AWS Lambda. This allows for maximum security for the user, while also performing key backend functions. This is a a PWA (Progressive Web App) which can easily be installed on the users mobile device, desktop, or in browser, regardless of the type of device (Apple vs Android...)
+
+Serverless Functionality:
+The app uses Amazon AWS Lambda for performing key functions in the backend, such as performing verification functions like receiving access token, getting events and so on.
+Google OAuth 2 is used as a basis for verifying users by their perspective Google accounts, allowing for added security, and not needing to create all the verifications functions that can be very time consuming.
+
+Technologies used in thi app:
+HTML
+CSS
+JavaScript 
+React
+
 User story:
 The user of this app will have the ability to track multiple events that will take place in the city
 where the user is currently located in.
