@@ -25,28 +25,16 @@ where the user is currently located in.
 <br>
 <ul>
     <h1>App Road map</h1>
-<li>Default: The user has not searched for any specific city</li>
+    <li>Default: The user has not searched for any specific city</li>
     <li>Searching: When searching by city, the user should see a list of suggested cities</li>
-● City selection: The user should choose a city from the suggested cities
-● Local events: The user should see all events in that city
-● Event details: Show or hide event details
-● Use offline: Caching data to allow for offline app usage
-● Homepage: Show all events.
-● Events by city: Search events by the city in the search box.
-● The default number of events: The default number to show at once is 20.
-● User input for default number: The user can set the number of events to show at once.
-● Events: Manually add or remove event
-    Event details:
-        ○ Event poster
-        ○ Event name
-        ○ Event date
-        ○ Event description
-        ○ Address
-        ○ City
-        ○ State/Province
-        ○ Address 1
-        ○ Address 2
-        ○ Postal code
+    <li>City selection: The user should choose a city from the suggested cities</li>
+    <li>Local events: The user should see all events in that city</li>
+    <li> Event details: Show or hide event details</li>
+    <li>Use offline: Caching data to allow for offline app usage</li>
+    <li> Homepage: Show all events</li>
+    <li>Events by city: Search events by the city in the search box</li>
+    <li>The default number of events: The default number to show at once is 32</li>
+    <li>User input for default number: The user can set the number of events to show at once</li>
 
 Scenario road map:
     ● As a [role],
