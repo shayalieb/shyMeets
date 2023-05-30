@@ -1,13 +1,17 @@
 ![Alt text](src/img/Large%20Screenshot.PNG)
 
-<b>shyMeets Overview:</b>
+<h1>shyMeets Overview:</h1>
+<p>
 shyMeets App is designed to help users manage all of their events that take place in various cities around the world. The app uses serverless functionality from Google OAuth, and Amazon AWS Lambda. This allows for maximum security for the user, while also performing key backend functions. This is a a PWA (Progressive Web App) which can easily be installed on the users mobile device, desktop, or in browser, regardless of the type of device (Apple vs Android...)
-
-Serverless Functionality:
+</p>
+</br>
+<h1>Serverless Functionality:</h1>
+<p>
 The app uses Amazon AWS Lambda for performing key functions in the backend, such as performing verification functions like receiving access token, getting events and so on.
 Google OAuth 2 is used as a basis for verifying users by their perspective Google accounts, allowing for added security, and not needing to create all the verifications functions that can be very time consuming.
-
-Technologies used in thi app:
+</p>
+<ul>
+    <h1>Technologies used in thi app:</h1>
 HTML
 CSS
 JavaScript 
