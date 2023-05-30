@@ -48,22 +48,28 @@ where the user is currently located in.
     </ul>
 </ul>    
 
-Scenario 1: What the user should expect.
-    ● As a user: I should have the ability to manage the events that will be taking place in a given city.
-    ● I should be able to: Filter events by city.
-    ● So that: I can see a list of events that will take place in that city.
-        ○ Given: When the app opens and is loaded.
-        ○ When: The user has not made any searches yet.
-        ○ Then: The user should see a list of all events.
-
-Scenario 2: Event suggestions.
-    ● As a user: I would like to see a list of suggested cities to choose from.
-    ● I should be able to: Have the ability to type a city into the search box.
-    ● So that: I can see a list of suggested events in my city.
-        ○ Given: Show a list of cities and a search box.
-        ○ When: The user starts typing in the search box.
-        ○ Then: Show a list of suggestions should appear matching what is being typed in the search box.
-
+<ul>
+    <h2>Scenario 1: What the user should expect</h2>
+    <li>As a user: I should have the ability to manage the events that will be taking place in a given city</li>
+    <li>I should be able to: Filter events by city</li>
+    <li>So that: I can see a list of events that will take place in that city</li>
+    <ul>
+        <li>Given: When the app opens and is loaded</li>
+        <li>When: The user has not made any searches yet</li>
+        <li>Then: The user should see a list of all events</li>
+    </ul>
+</ul>
+<ul>
+    <h2>Scenario 2: Event suggestions</h2>
+    <li>As a user: I would like to see a list of suggested cities to choose from</li>
+    <li>I should be able to: Have the ability to type a city into the search box</li>
+    <li>So that: I can see a list of suggested events in my city</li>
+    <ul>    
+        <li>Given: Show a list of cities and a search box</li>
+        <li>When: The user starts typing in the search box</li>
+        <li>Then: Show a list of suggestions should appear matching what is being typed in the search box</li>
+        </ul>
+</ul>        
 Scenario 3: Select a city from the suggested.
     ● As a user: Once I choose my desired city.
     ● I should be able to: View all events that are taking place in that city.
