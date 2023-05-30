@@ -104,7 +104,7 @@ where the user is currently located in.
     </ul>
 </ul>   
 <ul>
-<h2>Scenario 6: Not needing an internet connection to use the app.
+<h2>Scenario 6: Not needing an internet connection to use the app</h2>
     <li>As a user: I would like to use this app offline</li>
     <li>I should be able to: View my events when there is no internet connection</li>
     <li>So that: I can view my events even when there is no internet connection</li>
