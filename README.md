@@ -22,9 +22,11 @@ Google OAuth 2 is used as a basis for verifying users by their perspective Googl
 <p>The user of this app will have the ability to track multiple events that will take place in the city
 where the user is currently located in.
 </p>    
-App Road map
-● Default: The user has not searched for any specific city.
-● Searching: When searching by city, the user should see a list of suggested cities.
+<br>
+<ul>
+    <h1>App Road map</h1>
+<li>Default: The user has not searched for any specific city</li>
+    <li>Searching: When searching by city, the user should see a list of suggested cities</li>
 ● City selection: The user should choose a city from the suggested cities
 ● Local events: The user should see all events in that city
 ● Event details: Show or hide event details
