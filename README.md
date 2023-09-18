@@ -54,8 +54,7 @@ Scenario road map:
     <li>As a [role] (Given)</li>
     <li>I should be able to [action] (When)</li>
     <li>So that [benefit] (Then)</li>
-    </ul>
-<ul>
+</ul>
 
 ## Scenario 1: What the user should expect
 <ul>
@@ -64,10 +63,11 @@ Scenario road map:
 <li>So that: I can see a list of events that will take place in that city</li>
 </ul>
 <ul>
-        <li>Given: When the app opens and is loaded</li>
-        <li>When: The user has not made any searches yet</li>
-        <li>Then: The user should see a list of all events</li>
-    </ul>
+<li>Given: When the app opens and is loaded</li>
+<li>When: The user has not made any searches yet</li>
+<li>Then: The user should see a list of all events</li>
+</ul>
+
 ## Scenario 2: Event suggestions
 <ul>
 <li>As a user: I would like to see a list of suggested cities to choose from</li>
