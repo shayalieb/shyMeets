@@ -61,11 +61,12 @@ Scenario road map:
 <li>As a user: I should have the ability to manage the events that will be taking place in a given city</li>
 <li>I should be able to: Filter events by city</li>
 <li>So that: I can see a list of events that will take place in that city</li>
-</ul>
+
 <ul>
 <li>Given: When the app opens and is loaded</li>
 <li>When: The user has not made any searches yet</li>
 <li>Then: The user should see a list of all events</li>
+</ul>
 </ul>
 
 ## Scenario 2: Event suggestions
@@ -73,11 +74,12 @@ Scenario road map:
 <li>As a user: I would like to see a list of suggested cities to choose from</li>
 <li>I should be able to: Have the ability to type a city into the search box</li>
 <li>So that: I can see a list of suggested events in my city</li>
- </ul>
+
 <ul>    
 <li>Given: Show a list of cities and a search box</li>
 <li>When: The user starts typing in the search box</li>
 <li>Then: Show a list of suggestions should appear matching what is being typed in the search box</li>
+ </ul>
 </ul>
    
 ## Scenario 3: Select a city from the suggested
@@ -93,11 +95,10 @@ Scenario road map:
 </ul>    
 
 ## Scenario 4: Event details
-<uL>
+<ul>
 <li>As a user: When viewing event details</li>
-    <li>I should be able to: Show and hide event details</li>
-    <li>So that: I can view one event at a time eliminating clutter</li>
-   </ul>
+<li>I should be able to: Show and hide event details</li>
+<li>So that: I can view one event at a time eliminating clutter</li>
     <ul>
         <li>Given: Open event details</li>
         <li>When: When the user chooses to open event details</li>
@@ -110,11 +111,11 @@ Scenario road map:
 <li>As a user: I do not want to see too many events at once unless I specify</li>
     <li>I should be able to: Either see 32 events at once or specify a certain number
     <li>So that: I can manage how many events I see at once making it more streamlined</li>
-       </ul>
-    <ul>
+       <ul>
         <li>Given: View default of 32 events at a time</li>
         <li>When: The user specifies the number of events to show at one time</li>
         <li>Then: Show the specified (or default if no number is specified) number of events</li>
+        </ul>
  </ul>   
 
 ## Scenario 6: Not needing an internet connection to use the app
@@ -122,7 +123,6 @@ Scenario road map:
  <li>As a user: I would like to use this app offline</li>
     <li>I should be able to: View my events when there is no internet connection</li>
     <li>So that: I can view my events even when there is no internet connection</li>
-</ul>
 <ul>
 <li>Given: Cache all data in local storage</li>
         <li>When: The app is loaded, store all data locally</li>
@@ -135,10 +135,10 @@ Scenario road map:
  <li>As a user: I would like to add or remove an event</li>
     <li>I should be able to: Add or remove an event with its details</li>
     <li>So that: I can add events that are not on the app's events list yet, and remove events that are not important to me</li>
-</ul>
 <ul>
 <li>Given: Add or remove the event</li>
         <li>When: Adding events, input all details, and when removing an event remove all details from my cache</li>
         <li>Then: The app will add or remove all my necessary event data</li>
+        </ul>
 </ul>
 
