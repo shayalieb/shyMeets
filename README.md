@@ -30,34 +30,31 @@ Note: This is designed to work on Google devices only
 
 # App Road map
 
-User is taken to the home page to sign in using Google OAuth 
+##User is taken to the home page to sign in using Google OAuth 
 ![Home page image](src/img/home-page.jpg)
 
-Once logged in the user will see a list of events 
+##Once logged in the user will see a list of events 
 ![List of events](src/img/list%20of%20events.jpg)
 
-User can search events by city or all cities
+##User can search events by city or all cities
 ![City search](src/img/search-by-city.jpg)
 
-On the bottom of the page the user can select the number of events to show
+##On the bottom of the page the user can select the number of events to show
 ![Number of events](src/img/number-of-events.jpg)
 
-User can view a chart with the event type
+##User can view a chart with the event type
 ![Event chart](src/img/events-type-chart.jpg)
 
-User show or hide event details, as well as a link to the actual Google calendar event
+##User show or hide event details, as well as a link to the actual Google calendar event
 ![show hide event details](src/img/event-details-calendar-link.jpg)
 
 # User stories
 ## Scenario road map:
 <ul>
-    <li>As a [role]</li>
-    <li>I should be able to [action]</li>
-    <li>So that [benefit]</li>
+    <li>As a [role] (Given)</li>
+    <li>I should be able to [action] (When)</li>
+    <li>So that [benefit] (Then)</li>
     </ul>
 <ul>
-<li>Given</li>
-<li>When</li>
-<li>Then</li>
-</ul>
+
 
