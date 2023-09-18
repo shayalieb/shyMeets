@@ -69,17 +69,17 @@ Scenario road map:
         <li>Then: The user should see a list of all events</li>
     </ul>
 ## Scenario 2: Event suggestions
-
+<ul>
 <li>As a user: I would like to see a list of suggested cities to choose from</li>
-    <li>I should be able to: Have the ability to type a city into the search box</li>
-    <li>So that: I can see a list of suggested events in my city</li>
-    <ul>    
-        <li>Given: Show a list of cities and a search box</li>
-        <li>When: The user starts typing in the search box</li>
-        <li>Then: Show a list of suggestions should appear matching what is being typed in the search box</li>
-        </ul>
-</ul>   
-
+<li>I should be able to: Have the ability to type a city into the search box</li>
+<li>So that: I can see a list of suggested events in my city</li>
+ </ul>
+<ul>    
+<li>Given: Show a list of cities and a search box</li>
+<li>When: The user starts typing in the search box</li>
+<li>Then: Show a list of suggestions should appear matching what is being typed in the search box</li>
+</ul>
+   
 ## Scenario 3: Select a city from the suggested
 <ul>
     <li>As a user: Once I choose my desired city</li>
